@@ -3,11 +3,15 @@ package dandaeroid.ODNT_test;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.AdapterView.OnItemSelectedListener;
 
 public class category extends Activity {
 	Button _button01;
@@ -26,9 +30,10 @@ public class category extends Activity {
 	ArrayAdapter<String> _adapter01;
 	ArrayAdapter<String> _adapter02;
 	
-	Intent _intent;
-	int _p;
-	
+	Intent intent;
+	int p;
+	int forposition;
+	int forposition2;
 	
 	/** Called when the activity is first created. */
 	@Override
@@ -50,8 +55,8 @@ public class category extends Activity {
 	    _textview01 = (TextView)findViewById(R.id.TextView01);
 	    
 	    _textview01.setText("- Change category -");
-	    _intent = getIntent();
-        _p= _intent.getIntExtra("_position", 0);
+	    intent = getIntent();
+        p= intent.getIntExtra("position", 0);
 	    
 	    
 	    
@@ -65,7 +70,71 @@ public class category extends Activity {
 	    _spinner02.setAdapter(_adapter02);
 	    _spinner02.setPrompt("Category2");
 	    
+	    _spinner01.setOnItemSelectedListener(new OnItemSelectedListener() {
+			public void onItemSelected(AdapterView<?> parent, View view,
+					int position, long id) {
+				Toast.makeText(category.this, ""+position , Toast.LENGTH_SHORT).show();
+		    	 
+				forposition = position;
+				_edittext01.setText(_ppp._alCate01.get(forposition));
+			}
+			public void onNothingSelected(AdapterView<?> args0) {
+			}
+		});
+	    _spinner02.setOnItemSelectedListener(new OnItemSelectedListener() {
+			public void onItemSelected(AdapterView<?> parent, View view,
+					int position, long id) {
+				Toast.makeText(category.this, ""+position , Toast.LENGTH_SHORT).show();
+		    	 
+				forposition2 = position;
+				_edittext01.setText(_ppp._alCate02.get(forposition));
+			}
+			public void onNothingSelected(AdapterView<?> args0) {
+			}
+		});
 	    
+	    _button01.setOnClickListener(new View.OnClickListener() {
+			 public void onClick(View v) {
+				 
+				 _ppp._alCate01.set(forposition, _edittext01.getText().toString());
+				 _spinner01.setAdapter(_adapter01);
+			}
+		});
+	    
+	    _button02.setOnClickListener(new View.OnClickListener() {
+			 public void onClick(View v) {
+				 
+				 _ppp._alCate01.remove(forposition);
+				 _spinner01.setAdapter(_adapter01);
+			}
+		});
+	    
+	    _button03.setOnClickListener(new View.OnClickListener() {
+			 public void onClick(View v) {
+				 
+				 _ppp._alCate02.set(forposition2, _edittext02.getText().toString());
+				 _spinner02.setAdapter(_adapter02);
+			}
+		});
+	    
+	    _button04.setOnClickListener(new View.OnClickListener() {
+			 public void onClick(View v) {
+				 
+				 _ppp._alCate02.remove(forposition2);
+				 _spinner02.setAdapter(_adapter02);
+			}
+		});
+	    
+	    
+	    _button06.setOnClickListener(new View.OnClickListener() {
+			 public void onClick(View v) {
+
+				Intent intent = new Intent(category.this, main.class);
+				startActivity(intent);
+				finish();
+
+			}
+		});
 	    
 	    
 	    
