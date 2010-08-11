@@ -16,6 +16,7 @@
 <activity android:name="category"></activity>
 <activity android:name="view_question"></activity>
 <activity android:name="details_view"></activity>
+<activity android:name="edit_question"></activity>
 </application>
     <uses-sdk android:minSdkVersion="8" />
 
