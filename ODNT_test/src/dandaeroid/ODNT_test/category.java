@@ -107,6 +107,7 @@ public class category extends Activity {
 				 
 				 _ppp._alCate01.add(_edittext01.getText().toString());
 				 _spinner01.setAdapter(_adapter01);
+				 _edittext01.setText("");
 			}
 		});
 	    
@@ -123,6 +124,7 @@ public class category extends Activity {
 				 
 				 _ppp._alCate02.add(_edittext02.getText().toString());
 				 _spinner02.setAdapter(_adapter02);
+				 _edittext02.setText("");
 			}
 		});
 	    
