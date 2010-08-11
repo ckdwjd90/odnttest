@@ -20,7 +20,7 @@
 </LinearLayout>
 
 
-<LinearLayout android:id="@+id/LinearLayout04" android:layout_width="wrap_content" android:layout_height="wrap_content"><Button android:id="@+id/Button05" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="확인"></Button>
-<Button android:id="@+id/Button06" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="취소"></Button>
+<LinearLayout android:id="@+id/LinearLayout04" android:layout_width="wrap_content" android:layout_height="wrap_content"><Button android:id="@+id/Button05" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="뒤로"></Button>
+
 </LinearLayout>
 </LinearLayout>
