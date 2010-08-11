@@ -77,7 +77,7 @@ public class category extends Activity {
 				//Toast.makeText(category.this, ""+position , Toast.LENGTH_SHORT).show();
 		    	 
 				forposition = position;
-				//_edittext01.setText(_ppp._alCate01.get(forposition));
+				_edittext01.setText(_ppp._alCate01.get(forposition));
 			}
 			public void onNothingSelected(AdapterView<?> args0) {
 			}
@@ -88,7 +88,7 @@ public class category extends Activity {
 				//Toast.makeText(category.this, ""+position , Toast.LENGTH_SHORT).show();
 		    	 
 				forposition2 = position;
-				//_edittext01.setText(_ppp._alCate02.get(forposition));
+				_edittext02.setText(_ppp._alCate02.get(forposition));
 			}
 			public void onNothingSelected(AdapterView<?> args0) {
 			}
