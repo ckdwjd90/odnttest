@@ -63,17 +63,16 @@ public class view_question extends ListActivity {
 					 tt.setText(q._keyword);
 				 }
 				 if(bt_01!=null){
-					 bt_01.setText(q._cate01);
+					 bt_01.setText(global._alCate01.get(q._cate01));
 				 }
 				 if(bt_02!=null){
-					 bt_02.setText(q._cate02);
+					 bt_02.setText(global._alCate02.get(q._cate02));
 				 }
 			 }
 			 return v;
 		 }
 	}
 	
-
 	 protected void onListItemClick(ListView l, View v, int position, long id){
 	    	super.onListItemClick(l, v, position, id);
 	    	Intent intent=new Intent(view_question.this,details_view.class);
