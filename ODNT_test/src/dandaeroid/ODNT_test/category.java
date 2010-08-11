@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 
 public class category extends Activity {
@@ -100,7 +99,7 @@ public class category extends Activity {
 	    _button02.setOnClickListener(new View.OnClickListener() {
 			 public void onClick(View v) {
 				 
-				 _ppp._alCate01.remove(forposition);
+				 _ppp._alCate01.add(_edittext01.getText().toString());
 				 _spinner01.setAdapter(_adapter01);
 			}
 		});
@@ -116,7 +115,7 @@ public class category extends Activity {
 	    _button04.setOnClickListener(new View.OnClickListener() {
 			 public void onClick(View v) {
 				 
-				 _ppp._alCate02.remove(forposition2);
+				 _ppp._alCate02.add(_edittext02.getText().toString());
 				 _spinner02.setAdapter(_adapter02);
 			}
 		});
