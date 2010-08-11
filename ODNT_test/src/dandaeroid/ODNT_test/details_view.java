@@ -15,6 +15,7 @@ public class details_view extends Activity {
 	Button _bt_ok;
 	Button _bt_edit_question;
 	String st;
+	int position;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -26,6 +27,8 @@ public class details_view extends Activity {
 	    _text = (TextView)findViewById(R.id.TextView01);
 	    _bt_ok = (Button)findViewById(R.id.Button01);
 	    _bt_edit_question = (Button)findViewById(R.id.Button02);
+	    position = _intent.getIntExtra("position", 0);
+	    
 	    st = "This is Test Text";
 	    _text.setText(st.toString());
 	    
@@ -36,7 +39,10 @@ public class details_view extends Activity {
 		});
 	    _bt_edit_question.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {	
-				
+				Intent intent = new Intent(details_view.this, edit_question.class);
+				intent.putExtra("position", position);
+				startActivityForResult(intent, 0);
+				finish();	
 			}
 		});
 	    
