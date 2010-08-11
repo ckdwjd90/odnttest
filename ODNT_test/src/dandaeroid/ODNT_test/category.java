@@ -57,13 +57,19 @@ public class category extends Activity {
 	    
 	    _adapter01 = new ArrayAdapter<String>(this,
 				android.R.layout.simple_spinner_item, _ppp._alCate01);
+	    _ppp._alCate01.add("Default");
 	    _spinner01.setAdapter(_adapter01);
 	    _spinner01.setPrompt("Category1");
 	    
 	    _adapter02 = new ArrayAdapter<String>(this,
 				android.R.layout.simple_spinner_item, _ppp._alCate02);
+	    _ppp._alCate01.add("Default");
 	    _spinner02.setAdapter(_adapter02);
 	    _spinner02.setPrompt("Category2");
+	    
+	    
+	    
+	    
 	    
 	    _spinner01.setOnItemSelectedListener(new OnItemSelectedListener() {
 			public void onItemSelected(AdapterView<?> parent, View view,
