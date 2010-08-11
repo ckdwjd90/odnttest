@@ -29,7 +29,7 @@ public class question_reg extends Activity {
 	Button _bt1;
 	Button _bt2;
 	Global _gb;
-	Question _qt;
+
 	int _sp1temp = 0;
 	int _sp2temp = 0;
 	int _sp3temp = 0;
@@ -101,13 +101,15 @@ public class question_reg extends Activity {
         _bt2.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				_qt._keyword = _et1.getText().toString();
+/*				_qt._keyword = _et1.getText().toString();
 				_qt._cate01 = _sp1temp;
 				_qt._cate02 = _sp2temp;
 				_qt._answer = _sp3temp;
 				_qt._solution = _et2.getText().toString();
 				_qt._rate = _sp4temp;
-				_gb._alQuestion.add(_qt);
+				*/
+				_gb._alQuestion.add(new Question(_et1.getText().toString(), _sp1temp, _sp2temp, _sp3temp,
+						_et2.getText().toString(), _sp4temp));
 				Intent intent = new Intent(question_reg.this, main.class);
 				startActivity(intent);
 				
