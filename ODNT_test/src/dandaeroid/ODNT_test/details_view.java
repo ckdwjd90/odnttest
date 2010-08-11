@@ -12,7 +12,8 @@ public class details_view extends Activity {
 	Intent _intent;
 	Global _global;
 	TextView _text;
-	Button _ok;
+	Button _bt_ok;
+	Button _bt_edit_question;
 	String st;
 
 	/** Called when the activity is first created. */
@@ -23,14 +24,19 @@ public class details_view extends Activity {
 	    _intent = getIntent();
 	    _global = (Global)getApplication();
 	    _text = (TextView)findViewById(R.id.TextView01);
-	    _ok = (Button)findViewById(R.id.Button01);
-	    
+	    _bt_ok = (Button)findViewById(R.id.Button01);
+	    _bt_edit_question = (Button)findViewById(R.id.Button02);
 	    st = "This is Test Text";
 	    _text.setText(st.toString());
 	    
-	    _ok.setOnClickListener(new OnClickListener() {
+	    _bt_ok.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {	
 				finish();
+			}
+		});
+	    _bt_edit_question.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {	
+				
 			}
 		});
 	    
