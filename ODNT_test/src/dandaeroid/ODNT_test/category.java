@@ -125,13 +125,22 @@ public class category extends Activity {
 			}
 		});
 	    
+	    _button05.setOnClickListener(new View.OnClickListener() {
+			 public void onClick(View v) {
+
+				 setResult(RESULT_OK,intent);
+				 finish();		
+				
+
+			}
+		});
 	    
 	    _button06.setOnClickListener(new View.OnClickListener() {
 			 public void onClick(View v) {
 
-				Intent intent = new Intent(category.this, main.class);
-				startActivity(intent);
-				finish();
+				 setResult(RESULT_OK,intent);
+				 finish();		
+				
 
 			}
 		});
