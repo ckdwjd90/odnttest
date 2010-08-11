@@ -63,7 +63,7 @@ public class category extends Activity {
 	    
 	    _adapter02 = new ArrayAdapter<String>(this,
 				android.R.layout.simple_spinner_item, _ppp._alCate02);
-	    _ppp._alCate01.add("Default");
+	    _ppp._alCate02.add("Default");
 	    _spinner02.setAdapter(_adapter02);
 	    _spinner02.setPrompt("Category2");
 	    
