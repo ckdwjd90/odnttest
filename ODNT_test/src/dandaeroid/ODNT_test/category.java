@@ -19,7 +19,6 @@ public class category extends Activity {
 	Button _button03;
 	Button _button04;
 	Button _button05;
-	Button _button06;
 	Spinner _spinner01;
 	Spinner _spinner02;
 	EditText _edittext01;
@@ -30,8 +29,7 @@ public class category extends Activity {
 	ArrayAdapter<String> _adapter01;
 	ArrayAdapter<String> _adapter02;
 	
-	Intent intent;
-	int p;
+	Intent intent; 
 	int forposition;
 	int forposition2;
 	
@@ -47,7 +45,6 @@ public class category extends Activity {
 	    _button03 = (Button)findViewById(R.id.Button03);
 	    _button04 = (Button)findViewById(R.id.Button04);
 	    _button05 = (Button)findViewById(R.id.Button05);
-	    _button06 = (Button)findViewById(R.id.Button06);
 	    _spinner01 = (Spinner)findViewById(R.id.Spinner01);
 	    _spinner02 = (Spinner)findViewById(R.id.Spinner02);
 	    _edittext01 = (EditText)findViewById(R.id.EditText01);
@@ -56,8 +53,7 @@ public class category extends Activity {
 	    
 	    _textview01.setText("- Change category -");
 	    intent = getIntent();
-        p= intent.getIntExtra("position", 0);
-	    
+           
 	    
 	    
 	    _adapter01 = new ArrayAdapter<String>(this,
@@ -73,7 +69,7 @@ public class category extends Activity {
 	    _spinner01.setOnItemSelectedListener(new OnItemSelectedListener() {
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
-				Toast.makeText(category.this, ""+position , Toast.LENGTH_SHORT).show();
+				//Toast.makeText(category.this, ""+position , Toast.LENGTH_SHORT).show();
 		    	 
 				forposition = position;
 				_edittext01.setText(_ppp._alCate01.get(forposition));
@@ -84,7 +80,7 @@ public class category extends Activity {
 	    _spinner02.setOnItemSelectedListener(new OnItemSelectedListener() {
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
-				Toast.makeText(category.this, ""+position , Toast.LENGTH_SHORT).show();
+				//Toast.makeText(category.this, ""+position , Toast.LENGTH_SHORT).show();
 		    	 
 				forposition2 = position;
 				_edittext01.setText(_ppp._alCate02.get(forposition));
@@ -135,15 +131,6 @@ public class category extends Activity {
 			}
 		});
 	    
-	    _button06.setOnClickListener(new View.OnClickListener() {
-			 public void onClick(View v) {
-
-				 setResult(RESULT_OK,intent);
-				 finish();		
-				
-
-			}
-		});
 	    
 	    
 	    
