@@ -26,6 +26,7 @@ public class question_reg extends Activity {
 	EditText _et2;
 	Button _bt1;
 	Button _bt2;
+	Button _bt3;
 	Global _gb;
 
 	int _sp1temp = 0;
@@ -44,6 +45,7 @@ public class question_reg extends Activity {
         _et2 = (EditText) findViewById(R.id.EditText02);
         _bt1 = (Button)findViewById(R.id.Button01);
         _bt2 = (Button)findViewById(R.id.Button02);
+        _bt3 = (Button)findViewById(R.id.Button03);
         _gb = (Global)getApplication();      
         
         Spinner _sp1 = (Spinner) findViewById(R.id.Spinner01);
@@ -114,6 +116,14 @@ public class question_reg extends Activity {
 			public void onClick(View v) {
 				_gb._alQuestion.add(new Question(_et1.getText().toString(), _sp1temp, _sp2temp, _sp3temp,
 						_et2.getText().toString(), _sp4temp));
+				Intent intent = new Intent(question_reg.this, main.class);
+				startActivity(intent);
+			}
+		});
+        
+        _bt3.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
 				Intent intent = new Intent(question_reg.this, main.class);
 				startActivity(intent);
 			}
