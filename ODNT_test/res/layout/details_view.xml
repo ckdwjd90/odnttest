@@ -3,4 +3,5 @@
 
 
 <Button android:text="@+id/Button01" android:id="@+id/Button01" android:layout_below="@id/TextView01" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+<Button android:text="@+id/Button02" android:id="@+id/Button02" android:layout_below="@id/Button01" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
 </RelativeLayout>
