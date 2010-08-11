@@ -2,14 +2,36 @@ package dandaeroid.ODNT_test;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.TextView;
 
 public class details_view extends Activity {
+	Global _global;
+	TextView _text;
+	Button _ok;
+	String st;
 
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
-	    setContentView(R.layout.);
+	    setContentView(R.layout.details_view);
+	    _global = (Global)getApplication();
+	    _text = (TextView)findViewById(R.id.TextView01);
+	    _ok = (Button)findViewById(R.id.Button01);
+	    
+	    st = "This is Test Text";
+	    _text.setText(st.toString());
+	    
+	    _ok.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				
+			}
+		});
+	    
+	    
 	
 	    // TODO Auto-generated method stub
 	}
