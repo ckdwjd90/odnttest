@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="wrap_content"
-  android:layout_height="wrap_content">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" android:orientation="vertical">
+
+
+<TextView android:text="@+id/TextView01" android:id="@+id/TextView01" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+
+<LinearLayout android:id="@+id/LinearLayout01" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_width="fill_parent"><EditText android:text="@+id/EditText01" android:id="@+id/EditText01" android:layout_height="wrap_content" android:layout_width="0dp" android:layout_weight="1"></EditText>
+<EditText android:text="@+id/EditText02" android:id="@+id/EditText02" android:layout_height="wrap_content" android:layout_width="0dp" android:layout_weight="1"></EditText>
+</LinearLayout>
+<LinearLayout android:id="@+id/LinearLayout02" android:layout_height="wrap_content" android:layout_width="fill_parent"><Button android:id="@+id/Button01" android:layout_height="wrap_content" android:text="수정" android:layout_width="0dp" android:layout_weight="1"></Button>
+<Button android:id="@+id/Button02" android:layout_height="wrap_content" android:text="삭제" android:layout_width="0dp" android:layout_weight="1"></Button>
+<Button android:id="@+id/Button03" android:layout_height="wrap_content" android:text="수정" android:layout_width="0dp" android:layout_weight="1"></Button>
+<Button android:id="@+id/Button04" android:layout_height="wrap_content" android:text="삭제" android:layout_width="0dp" android:layout_weight="1"></Button>
+</LinearLayout>
+<LinearLayout android:id="@+id/LinearLayout03" android:layout_height="wrap_content" android:layout_width="fill_parent"><Spinner android:id="@+id/Spinner01" android:layout_height="wrap_content" android:layout_width="0dp" android:layout_weight="1"></Spinner>
+<Spinner android:id="@+id/Spinner02" android:layout_height="wrap_content" android:layout_width="0dp" android:layout_weight="1"></Spinner>
+</LinearLayout>
+
 </LinearLayout>
