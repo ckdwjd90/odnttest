@@ -9,7 +9,7 @@ public class category extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
-	    setContentView(R.layout.);
+	    setContentView(R.layout.category1);
 	
 	    // TODO Auto-generated method stub
 	}
