@@ -83,23 +83,23 @@ public class question_reg extends Activity {
 		_aa2 = new ArrayAdapter<String>(this,
 				android.R.layout.simple_spinner_item, _ALstr1);
 		
-		_aa1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		_sp1.setPrompt("카테고리2");
-		_sp1.setAdapter(_aa2);
+		_aa2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		_sp2.setPrompt("카테고리2");
+		_sp2.setAdapter(_aa2);
 		
 		_aa3 = new ArrayAdapter<Integer>(this,
 				android.R.layout.simple_spinner_item, _ALint1);
 		
-		_aa1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		_sp1.setPrompt("문제정답");
-		_sp1.setAdapter(_aa3);
+		_aa3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		_sp3.setPrompt("문제정답");
+		_sp3.setAdapter(_aa3);
 		
 		_aa4 = new ArrayAdapter<Integer>(this,
 				android.R.layout.simple_spinner_item, _ALint2);
 		
-		_aa1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		_sp1.setPrompt("중요도");
-		_sp1.setAdapter(_aa4);
+		_aa4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		_sp4.setPrompt("중요도");
+		_sp4.setAdapter(_aa4);
 		
 		
         
