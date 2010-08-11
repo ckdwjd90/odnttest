@@ -1,7 +1,8 @@
 
-<RelativeLayout android:id="@+id/RelativeLayout01" android:layout_width="fill_parent" android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android"><TextView android:text="@+id/TextView01" android:id="@+id/TextView01" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+<RelativeLayout android:id="@+id/RelativeLayout01" android:layout_width="fill_parent" android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+<TextView android:text="No Data" android:id="@+id/TextView01" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
 
 
-<Button android:text="@+id/Button01" android:id="@+id/Button01" android:layout_below="@id/TextView01" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-<Button android:text="@+id/Button02" android:id="@+id/Button02" android:layout_below="@id/Button01" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+<Button android:text="return" android:id="@+id/Button01" android:layout_below="@id/TextView01" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+<Button android:text="edit_question" android:id="@+id/Button02" android:layout_below="@id/Button01" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
 </RelativeLayout>
