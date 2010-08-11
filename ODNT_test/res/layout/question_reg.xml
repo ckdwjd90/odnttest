@@ -2,16 +2,18 @@
 
 
 <LinearLayout android:id="@+id/LinearLayout01" android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="fill_parent" android:orientation="vertical"><EditText android:id="@+id/EditText01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:hint="키워드를 입력해주세요."></EditText>
-<LinearLayout android:id="@+id/LinearLayout02" android:layout_width="wrap_content" android:layout_height="wrap_content"><Spinner android:id="@+id/Spinner01" android:layout_width="wrap_content" android:layout_height="wrap_content"></Spinner>
+<TextView android:id="@+id/TextView01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="카테고리를 지정해주세요."></TextView><LinearLayout android:id="@+id/LinearLayout02" android:layout_width="wrap_content" android:layout_height="wrap_content"><Spinner android:id="@+id/Spinner01" android:layout_width="wrap_content" android:layout_height="wrap_content"></Spinner>
 <Spinner android:id="@+id/Spinner02" android:layout_width="wrap_content" android:layout_height="wrap_content"></Spinner>
 
 <Button android:id="@+id/Button01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="카테고리 수정"></Button>
 </LinearLayout>
 
 
-<LinearLayout android:id="@+id/LinearLayout03" android:layout_width="wrap_content" android:layout_height="wrap_content"><Spinner android:id="@+id/Spinner03" android:layout_width="wrap_content" android:layout_height="wrap_content"></Spinner>
+<TextView android:id="@+id/TextView02" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="문제정답과 중요도를 체크해주세요."></TextView><LinearLayout android:id="@+id/LinearLayout03" android:layout_width="wrap_content" android:layout_height="wrap_content"><Spinner android:id="@+id/Spinner03" android:layout_width="wrap_content" android:layout_height="wrap_content"></Spinner>
 <Spinner android:id="@+id/Spinner04" android:layout_width="wrap_content" android:layout_height="wrap_content"></Spinner>
 </LinearLayout>
-<EditText android:id="@+id/EditText02" android:layout_width="wrap_content" android:layout_height="wrap_content" android:hint="문제 해설을 적어주세요."></EditText>
-<Button android:id="@+id/Button02" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="등록"></Button>
+<EditText android:id="@+id/EditText02" android:layout_width="wrap_content" android:layout_height="wrap_content" android:hint="문제 해설을 적어주세요."></EditText><Button android:id="@+id/Button02" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="등록"></Button>
+
+
+
 </LinearLayout>

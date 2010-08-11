@@ -16,8 +16,6 @@ import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 
 public class question_reg extends Activity {
-	ArrayList<String> _ALstr1;
-	ArrayList<String> _ALstr2;
 	ArrayList<Integer> _ALint1;
 	ArrayList<Integer> _ALint2;
 	ArrayAdapter<String> _aa1;
@@ -46,19 +44,17 @@ public class question_reg extends Activity {
         _et2 = (EditText) findViewById(R.id.EditText02);
         _bt1 = (Button)findViewById(R.id.Button01);
         _bt2 = (Button)findViewById(R.id.Button02);
-        _gb = (Global)getApplication();
+        _gb = (Global)getApplication();      
         
         Spinner _sp1 = (Spinner) findViewById(R.id.Spinner01);
         Spinner _sp2 = (Spinner) findViewById(R.id.Spinner02);
         Spinner _sp3 = (Spinner) findViewById(R.id.Spinner03);
-        Spinner _sp4 = (Spinner) findViewById(R.id.Spinner04);
+        Spinner _sp4 = (Spinner) findViewById(R.id.Spinner04);    
         
-        _ALstr1 = new ArrayList<String>();
-        _ALstr2 = new ArrayList<String>();
         _ALint1 = new ArrayList<Integer>();
         _ALint2 = new ArrayList<Integer>();
         
-        _ALint1.add(0);
+        
         _ALint1.add(1);
         _ALint1.add(2);
         _ALint1.add(3);
@@ -72,39 +68,39 @@ public class question_reg extends Activity {
         _ALint2.add(4);
         _ALint2.add(5);
         
+        if(_gb._alCate01.size() == 0) {
+        	_gb._alCate01.add("Default");
+        }
+        if(_gb._alCate02.size() == 0) {
+        	_gb._alCate02.add("Default");
+        }
+        
 
 		_aa1 = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_item, _ALstr1);
-		
+				android.R.layout.simple_spinner_item, _gb._alCate01);		
 		_aa1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		_sp1.setPrompt("카테고리1");
 		_sp1.setAdapter(_aa1);
 		
 		_aa2 = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_item, _ALstr1);
-		
+				android.R.layout.simple_spinner_item, _gb._alCate02);		
 		_aa2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		_sp2.setPrompt("카테고리2");
 		_sp2.setAdapter(_aa2);
 		
 		_aa3 = new ArrayAdapter<Integer>(this,
-				android.R.layout.simple_spinner_item, _ALint1);
-		
+				android.R.layout.simple_spinner_item, _ALint1);		
 		_aa3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		_sp3.setPrompt("문제정답");
 		_sp3.setAdapter(_aa3);
 		
 		_aa4 = new ArrayAdapter<Integer>(this,
-				android.R.layout.simple_spinner_item, _ALint2);
-		
+				android.R.layout.simple_spinner_item, _ALint2);		
 		_aa4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		_sp4.setPrompt("중요도");
 		_sp4.setAdapter(_aa4);
-		
-		
         
-
-        
+		
         _bt1.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -112,23 +108,14 @@ public class question_reg extends Activity {
 				startActivityForResult(intent, 1);
 			}
 		});
-        
-        
+                
         _bt2.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-/*				_qt._keyword = _et1.getText().toString();
-				_qt._cate01 = _sp1temp;
-				_qt._cate02 = _sp2temp;
-				_qt._answer = _sp3temp;
-				_qt._solution = _et2.getText().toString();
-				_qt._rate = _sp4temp;
-				*/
 				_gb._alQuestion.add(new Question(_et1.getText().toString(), _sp1temp, _sp2temp, _sp3temp,
 						_et2.getText().toString(), _sp4temp));
 				Intent intent = new Intent(question_reg.this, main.class);
 				startActivity(intent);
-				
 			}
 		});
         
@@ -136,8 +123,7 @@ public class question_reg extends Activity {
 			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 				Toast.makeText(question_reg.this, ""+position, Toast.LENGTH_SHORT).show();
 				_sp1temp = position;
-			}
-			
+			}			
 			public void onNothingSelected(AdapterView<?> args0) {
 			}
 		});
@@ -147,7 +133,6 @@ public class question_reg extends Activity {
 				Toast.makeText(question_reg.this, ""+position, Toast.LENGTH_SHORT).show();
 				_sp2temp = position;
 			}
-			
 			public void onNothingSelected(AdapterView<?> args0) {
 			}
 		});
@@ -155,8 +140,7 @@ public class question_reg extends Activity {
 			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 				Toast.makeText(question_reg.this, ""+position, Toast.LENGTH_SHORT).show();
 				_sp3temp = position;
-			}
-			
+			}			
 			public void onNothingSelected(AdapterView<?> args0) {
 			}
 		});
@@ -165,12 +149,10 @@ public class question_reg extends Activity {
 			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 				Toast.makeText(question_reg.this, ""+position, Toast.LENGTH_SHORT).show();
 				_sp4temp = position;
-			}
-			
+			}			
 			public void onNothingSelected(AdapterView<?> args0) {
 			}
-		});
-        
+		});        
         
     }
     @Override
