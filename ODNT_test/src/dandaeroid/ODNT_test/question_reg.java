@@ -47,6 +47,7 @@ public class question_reg extends Activity {
         _bt1 = (Button)findViewById(R.id.Button01);
         _bt2 = (Button)findViewById(R.id.Button02);
         _gb = (Global)getApplication();
+        
         Spinner _sp1 = (Spinner) findViewById(R.id.Spinner01);
         Spinner _sp2 = (Spinner) findViewById(R.id.Spinner02);
         Spinner _sp3 = (Spinner) findViewById(R.id.Spinner03);
@@ -56,6 +57,21 @@ public class question_reg extends Activity {
         _ALstr2 = new ArrayList<String>();
         _ALint1 = new ArrayList<Integer>();
         _ALint2 = new ArrayList<Integer>();
+        
+        _ALint1.add(0);
+        _ALint1.add(1);
+        _ALint1.add(2);
+        _ALint1.add(3);
+        _ALint1.add(4);
+        _ALint1.add(5);
+        
+        _ALint2.add(0);
+        _ALint2.add(1);
+        _ALint2.add(2);
+        _ALint2.add(3);
+        _ALint2.add(4);
+        _ALint2.add(5);
+        
 
 		_aa1 = new ArrayAdapter<String>(this,
 				android.R.layout.simple_spinner_item, _ALstr1);
