@@ -20,9 +20,6 @@ public class main extends Activity {
         
         _global = (Global)getApplication();
         
-        _global._alCate01.add("미분류");
-        _global._alCate02.add("미분류");
-        
         _btQuestion_reg = (Button)findViewById(R.id.Button01);
         _btView_question = (Button)findViewById(R.id.Button02);
         
