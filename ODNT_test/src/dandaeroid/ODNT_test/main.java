@@ -8,6 +8,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 public class main extends Activity {
+	Global _global;
+	
 	Button _btQuestion_reg;
 	Button _btView_question;
 	
@@ -15,6 +17,9 @@ public class main extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        
+        _global._alCate01.add("미분류");
+        _global._alCate02.add("미분류");
         
         _btQuestion_reg = (Button)findViewById(R.id.Button01);
         _btView_question = (Button)findViewById(R.id.Button02);
