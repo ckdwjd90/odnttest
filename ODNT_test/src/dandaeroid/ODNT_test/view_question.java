@@ -22,6 +22,10 @@ public class view_question extends ListActivity {
 	Button button01;
 	ArrayList<Question> list;
 	QuestionAdapter m_adapter;
+	Spinner sp01;
+	Spinner sp02;
+	int pos1;
+	int pos2;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -30,32 +34,50 @@ public class view_question extends ListActivity {
 
 		global = (Global) getApplication();
 		button01 = (Button) findViewById(R.id.Button01);
-		Spinner sp = (Spinner) findViewById(R.id.Spinner01);
+		sp01 = (Spinner) findViewById(R.id.Spinner01);
+		sp02 = (Spinner) findViewById(R.id.Spinner02);
 		list = new ArrayList<Question>();
 
 		ArrayAdapter<String> aa = new ArrayAdapter<String>(this,
 				android.R.layout.simple_spinner_item, global._alCate01);
+		
+		ArrayAdapter<String> aa1 = new ArrayAdapter<String>(this,
+				android.R.layout.simple_spinner_item, global._alCate02);
 
 		aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-		sp.setPrompt("category");
-		sp.setAdapter(aa);
+		sp01.setPrompt("category");
+		sp01.setAdapter(aa);
+		
+		aa1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+		sp02.setPrompt("category");
+		sp02.setAdapter(aa1);
 
 		m_adapter = new QuestionAdapter(this, R.layout.view_question_2, list);
 
 		setListAdapter(m_adapter);
 
-		sp.setOnItemSelectedListener(new OnItemSelectedListener() {
+		sp01.setOnItemSelectedListener(new OnItemSelectedListener() {
 
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
-				list.clear();
-				for (int i = 0; i < global._alQuestion.size(); i++) {
-					if (global._alQuestion.get(i)._cate01 == position) {
-						list.add(global._alQuestion.get(i));
-					}
-				}
-				m_adapter.notifyDataSetChanged();
+				pos1=position;
+				refreshList();
+			}
+
+			public void onNothingSelected(AdapterView<?> args0) {
+
+			}
+		});
+		
+		sp02.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			public void onItemSelected(AdapterView<?> parent, View view,
+					int position, long id) {
+				//list.clear();
+				pos2=position;
+				refreshList();
 			}
 
 			public void onNothingSelected(AdapterView<?> args0) {
@@ -105,6 +127,16 @@ public class view_question extends ListActivity {
 			}
 			return v;
 		}
+	}
+	
+	void refreshList() {
+		list.clear();
+		for (int i = 0; i < global._alQuestion.size(); i++) {
+			if (global._alQuestion.get(i)._cate01 == pos1 && global._alQuestion.get(i)._cate02 == pos2) {
+				list.add(global._alQuestion.get(i));
+			}
+		}
+		m_adapter.notifyDataSetChanged();
 	}
 
 	protected void onListItemClick(ListView l, View v, int position, long id) {
