@@ -1,10 +1,23 @@
 package dandaeroid.ODNT_test;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.protocol.HTTP;
+import org.apache.http.util.EntityUtils;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -12,7 +25,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 
 public class question_reg extends Activity {
@@ -57,6 +69,7 @@ public class question_reg extends Activity {
         _ALint2 = new ArrayList<Integer>();
         
         
+        _ALint1.add(0);
         _ALint1.add(1);
         _ALint1.add(2);
         _ALint1.add(3);
@@ -69,14 +82,6 @@ public class question_reg extends Activity {
         _ALint2.add(3);
         _ALint2.add(4);
         _ALint2.add(5);
-        
-        if(_gb._alCate01.size() == 0) {
-        	_gb._alCate01.add("Default");
-        }
-        if(_gb._alCate02.size() == 0) {
-        	_gb._alCate02.add("Default");
-        }
-        
 
 		_aa1 = new ArrayAdapter<String>(this,
 				android.R.layout.simple_spinner_item, _gb._alCate01);		
@@ -116,6 +121,21 @@ public class question_reg extends Activity {
 			public void onClick(View v) {
 				_gb._alQuestion.add(new Question(_et1.getText().toString(), _sp1temp, _sp2temp, _sp3temp,
 						_et2.getText().toString(), _sp4temp));
+				String keyword = _et1.getText().toString();
+				try {
+			        HttpClient client = new DefaultHttpClient();
+			        String postURL = "ºñ¹Ð/odnt_write.php";
+			        HttpPost post = new HttpPost(postURL); 
+			            List<NameValuePair> params = new ArrayList<NameValuePair>();
+			            params.add(new BasicNameValuePair("keyword", keyword));
+			            UrlEncodedFormEntity ent = new UrlEncodedFormEntity(params,HTTP.UTF_8);
+			            post.setEntity(ent);
+			            HttpResponse responsePOST = client.execute(post);  
+			            HttpEntity resEntity = responsePOST.getEntity();  
+			            if (resEntity != null) Log.w("RESPONSE",EntityUtils.toString(resEntity));
+				} catch (Exception e) {
+			        e.printStackTrace();
+				}
 				Intent intent = new Intent(question_reg.this, main.class);
 				startActivity(intent);
 			}
@@ -131,7 +151,6 @@ public class question_reg extends Activity {
         
         _sp1.setOnItemSelectedListener(new OnItemSelectedListener() {
 			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-				Toast.makeText(question_reg.this, ""+position, Toast.LENGTH_SHORT).show();
 				_sp1temp = position;
 			}			
 			public void onNothingSelected(AdapterView<?> args0) {
@@ -140,7 +159,6 @@ public class question_reg extends Activity {
         
         _sp2.setOnItemSelectedListener(new OnItemSelectedListener() {
 			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-				Toast.makeText(question_reg.this, ""+position, Toast.LENGTH_SHORT).show();
 				_sp2temp = position;
 			}
 			public void onNothingSelected(AdapterView<?> args0) {
@@ -148,7 +166,6 @@ public class question_reg extends Activity {
 		});
         _sp3.setOnItemSelectedListener(new OnItemSelectedListener() {
 			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-				Toast.makeText(question_reg.this, ""+position, Toast.LENGTH_SHORT).show();
 				_sp3temp = position;
 			}			
 			public void onNothingSelected(AdapterView<?> args0) {
@@ -157,7 +174,6 @@ public class question_reg extends Activity {
         
         _sp4.setOnItemSelectedListener(new OnItemSelectedListener() {
 			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-				Toast.makeText(question_reg.this, ""+position, Toast.LENGTH_SHORT).show();
 				_sp4temp = position;
 			}			
 			public void onNothingSelected(AdapterView<?> args0) {
