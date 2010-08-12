@@ -22,7 +22,7 @@ public class edit_question extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.edit_question);
         
         _global = (Global)getApplication();
         
