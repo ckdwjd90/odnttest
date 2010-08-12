@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 
 public class category extends Activity {
@@ -75,9 +76,7 @@ public class category extends Activity {
 		_spinner01.setOnItemSelectedListener(new OnItemSelectedListener() {
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
-				// Toast.makeText(category.this, ""+position ,
-				// Toast.LENGTH_SHORT).show();
-
+				 
 				forposition = position;
 				// _edittext01.setText(_ppp._alCate01.get(forposition));
 			}
@@ -88,9 +87,7 @@ public class category extends Activity {
 		_spinner02.setOnItemSelectedListener(new OnItemSelectedListener() {
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
-				// Toast.makeText(category.this, ""+position ,
-				// Toast.LENGTH_SHORT).show();
-
+				 
 				forposition2 = position;
 				// _edittext02.setText(_ppp._alCate02.get(forposition));
 			}
@@ -101,11 +98,18 @@ public class category extends Activity {
 
 		_button01.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-
+				
+				if(forposition==0){
+				Toast.makeText(category.this, "잘못 선택했어요, 다시해봐요", Toast.LENGTH_SHORT).show();
+					}
+				
+				if(forposition>0){
 				_ppp._alCate01.set(forposition, _edittext01.getText()
 						.toString());
 
 				_spinner01.setAdapter(_adapter01);
+				}
+				
 			}
 		});
 
@@ -121,9 +125,16 @@ public class category extends Activity {
 		_button03.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 
-				_ppp._alCate02.set(forposition2, _edittext02.getText()
-						.toString());
-				_spinner02.setAdapter(_adapter02);
+				if(forposition2==0){
+					Toast.makeText(category.this, "잘못 선택했어요, 다시해봐요", Toast.LENGTH_SHORT).show();
+						}
+					
+					if(forposition>0){
+					_ppp._alCate02.set(forposition2, _edittext02.getText()
+							.toString());
+
+					_spinner02.setAdapter(_adapter02);
+					}
 			}
 		});
 
@@ -146,7 +157,10 @@ public class category extends Activity {
 		});
 		_button06.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-
+				if(forposition==0){
+					Toast.makeText(category.this, "잘못 선택했어요, 다시해봐요", Toast.LENGTH_SHORT).show();
+						}
+				if(forposition>0){
 				if (!_ppp._alCate01.isEmpty()) {
 
 					for (int i = 0; i < _ppp._alQuestion.size(); i++) {
@@ -162,12 +176,15 @@ public class category extends Activity {
 					
 					_ppp._alCate01.remove(forposition);
 				}
-
+				}
 			}
 		});
 		_button07.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-
+				if(forposition2==0){
+					Toast.makeText(category.this, "잘못 선택했어요, 다시해봐요", Toast.LENGTH_SHORT).show();
+						}
+				if(forposition2>0){
 				if (!_ppp._alCate02.isEmpty()) {
 
 					for (int i = 0; i < _ppp._alQuestion.size(); i++) {
@@ -183,7 +200,7 @@ public class category extends Activity {
 					
 					_ppp._alCate02.remove(forposition2);
 				}
-
+				}
 			}
 		});
 		// TODO Auto-generated method stub
