@@ -4,7 +4,7 @@
    android:layout_width="fill_parent"
    android:layout_height="fill_parent"
    >
-<Button android:id="@+id/Button01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="category"></Button><ListView
+<LinearLayout android:id="@+id/LinearLayout01" android:layout_width="wrap_content" android:layout_height="wrap_content"><Spinner android:id="@+id/Spinner01" android:layout_height="wrap_content" android:layout_width="fill_parent"></Spinner><Button android:id="@+id/Button01" android:layout_height="wrap_content" android:text="category" android:layout_width="wrap_content"></Button></LinearLayout><ListView
     android:id="@+id/android:list"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -14,6 +14,8 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:text="tets"/>
+
+
 
 
 </LinearLayout>
