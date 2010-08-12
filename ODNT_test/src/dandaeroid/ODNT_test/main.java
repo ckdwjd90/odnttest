@@ -18,6 +18,8 @@ public class main extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
+        _global = (Global)getApplication();
+        
         _global._alCate01.add("미분류");
         _global._alCate02.add("미분류");
         
