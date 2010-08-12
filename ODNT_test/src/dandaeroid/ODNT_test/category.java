@@ -98,27 +98,58 @@ public class category extends Activity {
 
 		_button01.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
+//				int q= 0;
+//				if(forposition==0){
+//				Toast.makeText(category.this, "잘못 선택했어요, 다시해봐요", Toast.LENGTH_SHORT).show();
+//					}
+//				
+//				for(q = 0; q<_ppp._alCate01.size();q++){
+//				if(_ppp._alCate01.get(q)==_edittext01.getText().toString()){
+//					
+//					Toast.makeText(category.this, "중복된 카테고리네요, 다시해봐요", Toast.LENGTH_SHORT).show();	
+//					q = _ppp._alCate01.size();
+//				
+//				} }
+//				 
+//				if(forposition>0 && q != _ppp._alCate01.size()){
+//				_ppp._alCate01.set(forposition, _edittext01.getText()
+//						.toString());
+//				
+//				_spinner01.setAdapter(_adapter01);
+//				}
+//				}
 				
 				if(forposition==0){
-				Toast.makeText(category.this, "잘못 선택했어요, 다시해봐요", Toast.LENGTH_SHORT).show();
-					}
-				
-				if(forposition>0){
-				_ppp._alCate01.set(forposition, _edittext01.getText()
-						.toString());
+					Toast.makeText(category.this, "잘못 선택했어요, 다시해봐요", Toast.LENGTH_SHORT).show();
+						}
+					
+					if(forposition>0){
+					_ppp._alCate01.set(forposition, _edittext01.getText()
+							.toString());
 
-				_spinner01.setAdapter(_adapter01);
-				}
-				
-			}
+					_spinner01.setAdapter(_adapter01);
+					}}
+		 
 		});
-
+		
 		_button02.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-
-				_ppp._alCate01.add(_edittext01.getText().toString());
-				_spinner01.setAdapter(_adapter01);
-				_edittext01.setText("");
+				int q= 0;
+				for(q = 0; q<_ppp._alCate01.size();q++){
+					if(_ppp._alCate01.get(q)==_edittext01.getText().toString()){
+				
+				Toast.makeText(category.this, "중복된 카테고리네요, 다시해봐요", Toast.LENGTH_SHORT).show();	
+				q = _ppp._alCate01.size();
+				
+					}}
+				if(q != _ppp._alCate01.size()){
+					_ppp._alCate01.add(_edittext01.getText().toString());
+					_spinner01.setAdapter(_adapter01);
+					_edittext01.setText("");
+					
+					_spinner01.setAdapter(_adapter01);
+					}
+				
 			}
 		});
 
