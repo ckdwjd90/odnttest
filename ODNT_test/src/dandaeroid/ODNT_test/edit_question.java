@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 
 public class edit_question extends Activity {
@@ -25,8 +24,10 @@ public class edit_question extends Activity {
 	    super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
+        _global = (Global)getApplication();
+        
         Intent intent = getIntent();
-        _position = intent.getIntExtra("position", 65535);
+        _position = intent.getIntExtra("position", 0);
         _question = _global._alQuestion.get(_position);
         
         _etKeyword.setText(_question._keyword);
