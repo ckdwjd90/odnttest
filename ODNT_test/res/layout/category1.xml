@@ -6,8 +6,8 @@
 
 <TextView android:text="@+id/TextView01" android:id="@+id/TextView01" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
 
-<LinearLayout android:id="@+id/LinearLayout01" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_width="fill_parent"><EditText android:text="@+id/EditText01" android:id="@+id/EditText01" android:layout_height="wrap_content" android:layout_width="0dp" android:layout_weight="1"></EditText>
-<EditText android:text="@+id/EditText02" android:id="@+id/EditText02" android:layout_height="wrap_content" android:layout_width="0dp" android:layout_weight="1"></EditText>
+<LinearLayout android:id="@+id/LinearLayout01" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_width="fill_parent"><EditText android:text="@+id/EditText01" android:id="@+id/EditText01" android:layout_height="wrap_content" android:layout_width="0dp" android:layout_weight="1" android:hint="카테고리1 입력"></EditText>
+<EditText android:text="@+id/EditText02" android:id="@+id/EditText02" android:layout_height="wrap_content" android:layout_width="0dp" android:layout_weight="1" android:hint="카테고리2 입력"></EditText>
 </LinearLayout>
 <LinearLayout android:id="@+id/LinearLayout02" android:layout_height="wrap_content" android:layout_width="fill_parent"><Button android:id="@+id/Button01" android:layout_height="wrap_content" android:text="수정" android:layout_width="0dp" android:layout_weight="1"></Button>
 <Button android:id="@+id/Button02" android:layout_height="wrap_content" android:layout_width="0dp" android:layout_weight="1" android:text="추가"></Button>
