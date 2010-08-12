@@ -21,6 +21,8 @@ public class view_question extends ListActivity {
 	Global global;
 	Button button01;
 	ArrayList<Question> list;
+	ArrayList<String> n_list01;
+	ArrayList<String> n_list02;
 	QuestionAdapter m_adapter;
 	Spinner sp01;
 	Spinner sp02;
@@ -37,18 +39,32 @@ public class view_question extends ListActivity {
 		sp01 = (Spinner) findViewById(R.id.Spinner01);
 		sp02 = (Spinner) findViewById(R.id.Spinner02);
 		list = new ArrayList<Question>();
+		n_list01 = new ArrayList<String>();
+		n_list02 = new ArrayList<String>();
+
+		n_list01.add("전체");
+
+		for (int j = 0; j < global._alCate01.size(); j++) {
+			n_list01.add(global._alCate01.get(j));
+		}
+
+		n_list02.add("전체");
+
+		for (int k = 0; k < global._alCate02.size(); k++) {
+			n_list02.add(global._alCate02.get(k));
+		}
 
 		ArrayAdapter<String> aa = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_item, global._alCate01);
-		
+				android.R.layout.simple_spinner_item, n_list01);
+
 		ArrayAdapter<String> aa1 = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_item, global._alCate02);
+				android.R.layout.simple_spinner_item, n_list02);
 
 		aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
 		sp01.setPrompt("category");
 		sp01.setAdapter(aa);
-		
+
 		aa1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
 		sp02.setPrompt("category");
@@ -62,7 +78,7 @@ public class view_question extends ListActivity {
 
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
-				pos1=position;
+				pos1 = position;
 				refreshList();
 			}
 
@@ -70,13 +86,12 @@ public class view_question extends ListActivity {
 
 			}
 		});
-		
+
 		sp02.setOnItemSelectedListener(new OnItemSelectedListener() {
 
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
-				//list.clear();
-				pos2=position;
+				pos2 = position;
 				refreshList();
 			}
 
@@ -128,15 +143,28 @@ public class view_question extends ListActivity {
 			return v;
 		}
 	}
-	
+
 	void refreshList() {
 		list.clear();
 		for (int i = 0; i < global._alQuestion.size(); i++) {
-			if (global._alQuestion.get(i)._cate01 == pos1 && global._alQuestion.get(i)._cate02 == pos2) {
+			if (pos1 == 0 && pos2 == 0) {
 				list.add(global._alQuestion.get(i));
+			} else if (pos1 == 0 && pos2 != 0) {
+				if (global._alQuestion.get(i)._cate02 == pos2 - 1) {
+					list.add(global._alQuestion.get(i));
+				}
+			} else if (pos1 != 0 && pos2 == 0) {
+				if (global._alQuestion.get(i)._cate01 == pos1 - 1) {
+					list.add(global._alQuestion.get(i));
+				}
+			} else {
+				if (global._alQuestion.get(i)._cate01 == pos1 - 1
+						&& global._alQuestion.get(i)._cate02 == pos2 - 1) {
+					list.add(global._alQuestion.get(i));
+				}
 			}
+			m_adapter.notifyDataSetChanged();
 		}
-		m_adapter.notifyDataSetChanged();
 	}
 
 	protected void onListItemClick(ListView l, View v, int position, long id) {
