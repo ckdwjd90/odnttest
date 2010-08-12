@@ -165,7 +165,27 @@ public class category extends Activity {
 
 			}
 		});
+		_button07.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
 
+				if (!_ppp._alCate02.isEmpty()) {
+
+					for (int i = 0; i < _ppp._alQuestion.size(); i++) {
+						if (_ppp._alQuestion.get(i)._cate02 == forposition2) {
+							_ppp._alQuestion.get(i)._cate02 = 0;
+						}
+					}
+					for (int j = 0; j < _ppp._alQuestion.size(); j++) {
+						if (_ppp._alQuestion.get(j)._cate02 > forposition2) {
+							_ppp._alQuestion.get(j)._cate02 --;
+						}
+					}
+					
+					_ppp._alCate02.remove(forposition2);
+				}
+
+			}
+		});
 		// TODO Auto-generated method stub
 	}
 
