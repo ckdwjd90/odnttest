@@ -3,6 +3,7 @@ package dandaeroid.ODNT_test;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -76,7 +77,7 @@ public class category extends Activity {
 		_spinner01.setOnItemSelectedListener(new OnItemSelectedListener() {
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
-				 
+
 				forposition = position;
 				// _edittext01.setText(_ppp._alCate01.get(forposition));
 			}
@@ -87,7 +88,7 @@ public class category extends Activity {
 		_spinner02.setOnItemSelectedListener(new OnItemSelectedListener() {
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
-				 
+
 				forposition2 = position;
 				// _edittext02.setText(_ppp._alCate02.get(forposition));
 			}
@@ -98,74 +99,55 @@ public class category extends Activity {
 
 		_button01.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-//				int q= 0;
-//				if(forposition==0){
-//				Toast.makeText(category.this, "잘못 선택했어요, 다시해봐요", Toast.LENGTH_SHORT).show();
-//					}
-//				
-//				for(q = 0; q<_ppp._alCate01.size();q++){
-//				if(_ppp._alCate01.get(q)==_edittext01.getText().toString()){
-//					
-//					Toast.makeText(category.this, "중복된 카테고리네요, 다시해봐요", Toast.LENGTH_SHORT).show();	
-//					q = _ppp._alCate01.size();
-//				
-//				} }
-//				 
-//				if(forposition>0 && q != _ppp._alCate01.size()){
-//				_ppp._alCate01.set(forposition, _edittext01.getText()
-//						.toString());
-//				
-//				_spinner01.setAdapter(_adapter01);
-//				}
-//				}
-				
-				if(forposition==0){
-					Toast.makeText(category.this, "잘못 선택했어요, 다시해봐요", Toast.LENGTH_SHORT).show();
-						}
-					
-					if(forposition>0){
+
+				if (forposition == 0) {
+					Toast.makeText(category.this, "잘못 선택했어요, 다시해봐요",
+							Toast.LENGTH_SHORT).show();
+				}
+
+				if (forposition > 0) {
 					_ppp._alCate01.set(forposition, _edittext01.getText()
 							.toString());
 
 					_spinner01.setAdapter(_adapter01);
-					}}
-		 
+				}
+			}
+
 		});
-		
+
 		_button02.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				int q= 0;
-				for(q = 0; q<_ppp._alCate01.size();q++){
-					if(_ppp._alCate01.get(q)==_edittext01.getText().toString()){
-				
-				Toast.makeText(category.this, "중복된 카테고리네요, 다시해봐요", Toast.LENGTH_SHORT).show();	
-				q = _ppp._alCate01.size();
-				
-					}}
-				if(q != _ppp._alCate01.size()){
-					_ppp._alCate01.add(_edittext01.getText().toString());
-					_spinner01.setAdapter(_adapter01);
-					_edittext01.setText("");
-					
-					_spinner01.setAdapter(_adapter01);
+				int checker = 0;
+				for (int q = 0; q < _ppp._alCate01.size(); q++) {
+					if (_ppp._alCate01.get(q) == _edittext01.getText().toString()) {
+						Toast.makeText(category.this, "중복된 카테고리네요, 다시해봐요",
+								Toast.LENGTH_SHORT).show();
+//						checker++;
 					}
-				
+				}
+//				if (checker == 0) {
+//					_ppp._alCate01.add(_edittext01.getText().toString());
+//					_spinner01.setAdapter(_adapter01);
+//					_edittext01.setText("");
+//					_spinner01.setAdapter(_adapter01);
+//				}
 			}
 		});
 
 		_button03.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 
-				if(forposition2==0){
-					Toast.makeText(category.this, "잘못 선택했어요, 다시해봐요", Toast.LENGTH_SHORT).show();
-						}
-					
-					if(forposition>0){
+				if (forposition2 == 0) {
+					Toast.makeText(category.this, "잘못 선택했어요, 다시해봐요",
+							Toast.LENGTH_SHORT).show();
+				}
+
+				if (forposition > 0) {
 					_ppp._alCate02.set(forposition2, _edittext02.getText()
 							.toString());
 
 					_spinner02.setAdapter(_adapter02);
-					}
+				}
 			}
 		});
 
@@ -188,49 +170,51 @@ public class category extends Activity {
 		});
 		_button06.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				if(forposition==0){
-					Toast.makeText(category.this, "잘못 선택했어요, 다시해봐요", Toast.LENGTH_SHORT).show();
-						}
-				if(forposition>0){
-				if (!_ppp._alCate01.isEmpty()) {
-
-					for (int i = 0; i < _ppp._alQuestion.size(); i++) {
-						if (_ppp._alQuestion.get(i)._cate01 == forposition) {
-							_ppp._alQuestion.get(i)._cate01 = 0;
-						}
-					}
-					for (int j = 0; j < _ppp._alQuestion.size(); j++) {
-						if (_ppp._alQuestion.get(j)._cate01 > forposition) {
-							_ppp._alQuestion.get(j)._cate01 --;
-						}
-					}
-					
-					_ppp._alCate01.remove(forposition);
+				if (forposition == 0) {
+					Toast.makeText(category.this, "잘못 선택했어요, 다시해봐요",
+							Toast.LENGTH_SHORT).show();
 				}
+				if (forposition > 0) {
+					if (!_ppp._alCate01.isEmpty()) {
+
+						for (int i = 0; i < _ppp._alQuestion.size(); i++) {
+							if (_ppp._alQuestion.get(i)._cate01 == forposition) {
+								_ppp._alQuestion.get(i)._cate01 = 0;
+							}
+						}
+						for (int j = 0; j < _ppp._alQuestion.size(); j++) {
+							if (_ppp._alQuestion.get(j)._cate01 > forposition) {
+								_ppp._alQuestion.get(j)._cate01--;
+							}
+						}
+
+						_ppp._alCate01.remove(forposition);
+					}
 				}
 			}
 		});
 		_button07.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				if(forposition2==0){
-					Toast.makeText(category.this, "잘못 선택했어요, 다시해봐요", Toast.LENGTH_SHORT).show();
-						}
-				if(forposition2>0){
-				if (!_ppp._alCate02.isEmpty()) {
-
-					for (int i = 0; i < _ppp._alQuestion.size(); i++) {
-						if (_ppp._alQuestion.get(i)._cate02 == forposition2) {
-							_ppp._alQuestion.get(i)._cate02 = 0;
-						}
-					}
-					for (int j = 0; j < _ppp._alQuestion.size(); j++) {
-						if (_ppp._alQuestion.get(j)._cate02 > forposition2) {
-							_ppp._alQuestion.get(j)._cate02 --;
-						}
-					}
-					
-					_ppp._alCate02.remove(forposition2);
+				if (forposition2 == 0) {
+					Toast.makeText(category.this, "잘못 선택했어요, 다시해봐요",
+							Toast.LENGTH_SHORT).show();
 				}
+				if (forposition2 > 0) {
+					if (!_ppp._alCate02.isEmpty()) {
+
+						for (int i = 0; i < _ppp._alQuestion.size(); i++) {
+							if (_ppp._alQuestion.get(i)._cate02 == forposition2) {
+								_ppp._alQuestion.get(i)._cate02 = 0;
+							}
+						}
+						for (int j = 0; j < _ppp._alQuestion.size(); j++) {
+							if (_ppp._alQuestion.get(j)._cate02 > forposition2) {
+								_ppp._alQuestion.get(j)._cate02--;
+							}
+						}
+
+						_ppp._alCate02.remove(forposition2);
+					}
 				}
 			}
 		});
