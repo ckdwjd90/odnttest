@@ -16,11 +16,14 @@
 </LinearLayout>
 <LinearLayout android:id="@+id/LinearLayout03" android:layout_height="wrap_content" android:layout_width="fill_parent"><Spinner android:id="@+id/Spinner01" android:layout_height="wrap_content" android:layout_width="0dp" android:layout_weight="1"></Spinner>
 <Spinner android:id="@+id/Spinner02" android:layout_height="wrap_content" android:layout_width="0dp" android:layout_weight="1"></Spinner>
-
 </LinearLayout>
 
+<LinearLayout android:id="@+id/LinearLayout05" android:layout_height="wrap_content" android:layout_width="fill_parent">
+<Button android:id="@+id/Button06" android:layout_height="wrap_content" android:text="카테고리1 삭제" android:layout_width="0dp" android:layout_weight="1"></Button>
+<Button android:id="@+id/Button07" android:layout_height="wrap_content" android:layout_width="0dp" android:layout_weight="1" android:text="카테고리2 삭제"></Button>
+</LinearLayout>
 
 <LinearLayout android:id="@+id/LinearLayout04" android:layout_width="wrap_content" android:layout_height="wrap_content"><Button android:id="@+id/Button05" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="뒤로"></Button>
-
 </LinearLayout>
+
 </LinearLayout>
