@@ -33,11 +33,15 @@ public class edit_question extends Activity {
         setContentView(R.layout.edit_question);
         
         _global = (Global)getApplication();
+        
         _etKeyword = (EditText)findViewById(R.id.EditText01);
         _spCate01 = (Spinner)findViewById(R.id.Spinner01);
         _spCate02 = (Spinner)findViewById(R.id.Spinner02);
         _spAnswer = (Spinner)findViewById(R.id.Spinner03);
         _etSolution = (EditText)findViewById(R.id.EditText02);
+        _spRate = (Spinner)findViewById(R.id.Spinner04);
+        
+        
         
         Intent intent = getIntent();
         _position = intent.getIntExtra("position", 0);
