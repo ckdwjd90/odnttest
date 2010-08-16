@@ -117,23 +117,28 @@ public class category extends Activity {
 
 		_button02.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
+				int check=0;
 				for (int q = 0; q < _ppp._alCate01Edited.size(); q++) {
 					if (_ppp._alCate01Edited.get(q).equals(_edittext01.getText().toString())) {
 						Toast.makeText(category.this, "중복된 카테고리네요, 다시해봐요",
 								Toast.LENGTH_SHORT).show();
+						check =1;
  					}
 				}
 				
-				 if(_edittext01.getText().toString().length() != 0){
-					_ppp._alCate01.add(_edittext01.getText().toString());
+				 if(_edittext01.getText().toString().length() == 0){
+					 Toast.makeText(category.this, "공백입니다, 다시해봐요",
+								Toast.LENGTH_SHORT).show();
+				 }
+				 else {
+					if(check != 1){
+					 _ppp._alCate01.add(_edittext01.getText().toString());
 					_ppp._alCate01Edited.add(_edittext01.getText().toString());
 					_ppp._alCate01Position.add(_ppp._alCate01.size()-1);
 					
 					_spinner01.setAdapter(_adapter01);
 					_edittext01.setText("");
-				 }
-				 else Toast.makeText(category.this, "공백입니다, 다시해봐요",
-							Toast.LENGTH_SHORT).show();
+					}}
 					 
 			}
 		});
