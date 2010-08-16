@@ -84,13 +84,13 @@ public class question_reg extends Activity {
         _ALint2.add(5);
 
 		_aa1 = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_item, _gb._alCate01);		
+				android.R.layout.simple_spinner_item, _gb._alCate01Edited);		
 		_aa1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		_sp1.setPrompt("카테고리1");
 		_sp1.setAdapter(_aa1);
 		
 		_aa2 = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_item, _gb._alCate02);		
+				android.R.layout.simple_spinner_item, _gb._alCate02Edited);		
 		_aa2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		_sp2.setPrompt("카테고리2");
 		_sp2.setAdapter(_aa2);
@@ -151,7 +151,7 @@ public class question_reg extends Activity {
         
         _sp1.setOnItemSelectedListener(new OnItemSelectedListener() {
 			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-				_sp1temp = position;
+				_sp1temp = _gb._alCate01Position.get(position);
 			}			
 			public void onNothingSelected(AdapterView<?> args0) {
 			}
@@ -159,7 +159,7 @@ public class question_reg extends Activity {
         
         _sp2.setOnItemSelectedListener(new OnItemSelectedListener() {
 			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-				_sp2temp = position;
+				_sp2temp = _gb._alCate02Position.get(position);
 			}
 			public void onNothingSelected(AdapterView<?> args0) {
 			}
