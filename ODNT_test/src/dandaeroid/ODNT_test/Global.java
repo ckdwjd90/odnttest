@@ -19,14 +19,14 @@ public class Global extends Application {
 		_alCate01Edited = new ArrayList<String>();
 		_alCate01Position = new ArrayList<Integer>();
 		_alCate02 = new ArrayList<String>();
-		_alCate01Edited = new ArrayList<String>();
-		_alCate01Position = new ArrayList<Integer>();
+		_alCate02Edited = new ArrayList<String>();
+		_alCate02Position = new ArrayList<Integer>();
 		
         _alCate01.add("미분류");
         _alCate01Edited.add("미분류");
         _alCate01Position.add(0);
         _alCate02.add("미분류");
-        _alCate01Edited.add("미분류");
+        _alCate02Edited.add("미분류");
         _alCate02Position.add(0);
 	}
 }
