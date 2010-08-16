@@ -123,15 +123,17 @@ public class category extends Activity {
 								Toast.LENGTH_SHORT).show();
  					}
 				}
-				 	
+				
+				 if(_edittext01.getText().toString().length() != 0){
 					_ppp._alCate01.add(_edittext01.getText().toString());
 					_ppp._alCate01Edited.add(_edittext01.getText().toString());
 					_ppp._alCate01Position.add(_ppp._alCate01.size()-1);
 					
 					_spinner01.setAdapter(_adapter01);
 					_edittext01.setText("");
-				 
-					
+				 }
+				 else Toast.makeText(category.this, "공백입니다, 다시해봐요",
+							Toast.LENGTH_SHORT).show();
 					 
 			}
 		});
@@ -161,13 +163,18 @@ public class category extends Activity {
  					 
 					}
 				}
-
+				 if(_edittext02.getText().toString().length() != 0){
 				_ppp._alCate02.add(_edittext02.getText().toString());
 				_ppp._alCate02Edited.add(_edittext02.getText().toString());
 				_ppp._alCate02Position.add(_ppp._alCate02.size()-1);
-				
+				 
+				 
 				_spinner02.setAdapter(_adapter02);
 				_edittext02.setText("");
+				 }
+				 else Toast.makeText(category.this, "공백입니다, 다시해봐요",
+							Toast.LENGTH_SHORT).show();
+				
 			}
 		});
 
@@ -246,10 +253,10 @@ public class category extends Activity {
 						_ppp._alCate02Edited.clear();
 						_ppp._alCate02Position.clear();
 						
-						for(int k=0; k<_ppp._alCate02.size();k++){
-							if(_ppp._alCate02.get(k).toString() != "" ){
-								_ppp._alCate02Edited.add(_ppp._alCate02.get(k));
-								_ppp._alCate02Position.add(k);
+						for(int l=0; l<_ppp._alCate02.size();l++){
+							if(_ppp._alCate02.get(l).toString() != "" ){
+								_ppp._alCate02Edited.add(_ppp._alCate02.get(l));
+								_ppp._alCate02Position.add(l);
 							}							
 						}
 						_spinner02.setAdapter(_adapter02);
