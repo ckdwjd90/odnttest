@@ -23,6 +23,7 @@ public class view_question extends ListActivity {
 	ArrayList<Question> list;
 	ArrayList<String> n_list01;
 	ArrayList<String> n_list02;
+	ArrayList<Integer> posi;
 	QuestionAdapter m_adapter;
 	Spinner sp01;
 	Spinner sp02;
@@ -41,6 +42,7 @@ public class view_question extends ListActivity {
 		list = new ArrayList<Question>();
 		n_list01 = new ArrayList<String>();
 		n_list02 = new ArrayList<String>();
+		posi = new ArrayList<Integer>();
 
 		n_list01.add("ÀüÃ¼");
 
@@ -149,18 +151,22 @@ public class view_question extends ListActivity {
 		for (int i = 0; i < global._alQuestion.size(); i++) {
 			if (pos1 == 0 && pos2 == 0) {
 				list.add(global._alQuestion.get(i));
+				posi.add(i);
 			} else if (pos1 == 0 && pos2 != 0) {
 				if (global._alQuestion.get(i)._cate02 == pos2 - 1) {
 					list.add(global._alQuestion.get(i));
+					posi.add(i);
 				}
 			} else if (pos1 != 0 && pos2 == 0) {
 				if (global._alQuestion.get(i)._cate01 == pos1 - 1) {
 					list.add(global._alQuestion.get(i));
+					posi.add(i);
 				}
 			} else {
 				if (global._alQuestion.get(i)._cate01 == pos1 - 1
 						&& global._alQuestion.get(i)._cate02 == pos2 - 1) {
 					list.add(global._alQuestion.get(i));
+					posi.add(i);
 				}
 			}
 			m_adapter.notifyDataSetChanged();
@@ -170,7 +176,7 @@ public class view_question extends ListActivity {
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
 		Intent intent = new Intent(view_question.this, details_view.class);
-		intent.putExtra("position", position);
+		intent.putExtra("position", posi.get(position));
 		startActivity(intent);
 	}
 }
