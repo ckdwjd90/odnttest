@@ -16,7 +16,11 @@ public class Global extends Application {
 	public void onCreate(){
 		_alQuestion = new ArrayList<Question>();
 		_alCate01 = new ArrayList<String>();
+		_alCate01Edited = new ArrayList<String>();
+		_alCate01Position = new ArrayList<Integer>();
 		_alCate02 = new ArrayList<String>();
+		_alCate01Edited = new ArrayList<String>();
+		_alCate01Position = new ArrayList<Integer>();
 		
         _alCate01.add("미분류");
         _alCate01Edited.add("미분류");
