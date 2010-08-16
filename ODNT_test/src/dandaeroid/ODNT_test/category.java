@@ -197,13 +197,13 @@ public class category extends Activity {
 								
 							}
 						}
-						for (int j = 0; j < _ppp._alQuestion.size(); j++) {
-							if (_ppp._alQuestion.get(j)._cate01 > forposition) {
-								_ppp._alQuestion.get(j)._cate01--;
-								
-								
-							}
-						}
+//						for (int j = 0; j < _ppp._alQuestion.size(); j++) {
+//							if (_ppp._alQuestion.get(j)._cate01 > forposition) {
+//								_ppp._alQuestion.get(j)._cate01--;
+//								
+//								
+//							}
+//						}
 
 						_ppp._alCate01.set(_ppp._alCate01Position.get(forposition),"");
 						_ppp._alCate01Edited.clear();
@@ -236,11 +236,11 @@ public class category extends Activity {
 								_ppp._alQuestion.get(i)._cate02 = 0;
 							}
 						}
-						for (int j = 0; j < _ppp._alQuestion.size(); j++) {
-							if (_ppp._alQuestion.get(j)._cate02 > forposition2) {
-								_ppp._alQuestion.get(j)._cate02--;
-							}
-						}
+//						for (int j = 0; j < _ppp._alQuestion.size(); j++) {
+//							if (_ppp._alQuestion.get(j)._cate02 > forposition2) {
+//								_ppp._alQuestion.get(j)._cate02--;
+//							}
+//						}
 
 						_ppp._alCate02.set(_ppp._alCate02Position.get(forposition2),"");
 						_ppp._alCate02Edited.clear();
