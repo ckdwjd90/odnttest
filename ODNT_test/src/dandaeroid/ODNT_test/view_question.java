@@ -148,6 +148,7 @@ public class view_question extends ListActivity {
 
 	void refreshList() {
 		list.clear();
+		posi.clear();
 		for (int i = 0; i < global._alQuestion.size(); i++) {
 			if (pos1 == 0 && pos2 == 0) {
 				list.add(global._alQuestion.get(i));
