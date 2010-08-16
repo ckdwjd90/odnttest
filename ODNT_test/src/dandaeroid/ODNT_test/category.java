@@ -2,7 +2,6 @@ package dandaeroid.ODNT_test;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.hardware.Camera.Size;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -108,9 +107,8 @@ public class category extends Activity {
 				}
 
 				if (forposition > 0) {
-					_ppp._alCate01.set(forposition, _edittext01.getText()
-							.toString());
-
+					_ppp._alCate01.set(_ppp._alCate01Position.get(forposition), _edittext01.getText().toString());
+					_ppp._alCate01Edited.set(forposition, _edittext01.getText().toString());
 					_spinner01.setAdapter(_adapter01);
 				}
 			}
@@ -147,9 +145,8 @@ public class category extends Activity {
 				}
 
 				if (forposition > 0) {
-					_ppp._alCate02.set(forposition2, _edittext02.getText()
-							.toString());
-
+					_ppp._alCate02.set(_ppp._alCate02Position.get(forposition2), _edittext02.getText().toString());
+					_ppp._alCate02Edited.set(forposition2, _edittext02.getText().toString());
 					_spinner02.setAdapter(_adapter02);
 				}
 			}
@@ -182,27 +179,45 @@ public class category extends Activity {
 
 			}
 		});
+		
 		_button06.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				if (forposition == 0) {
 					Toast.makeText(category.this, "잘못 선택했어요, 다시해봐요",
 							Toast.LENGTH_SHORT).show();
 				}
+				
 				if (forposition > 0) {
 					if (!_ppp._alCate01.isEmpty()) {
 
 						for (int i = 0; i < _ppp._alQuestion.size(); i++) {
 							if (_ppp._alQuestion.get(i)._cate01 == forposition) {
 								_ppp._alQuestion.get(i)._cate01 = 0;
+								
+								
 							}
 						}
 						for (int j = 0; j < _ppp._alQuestion.size(); j++) {
 							if (_ppp._alQuestion.get(j)._cate01 > forposition) {
 								_ppp._alQuestion.get(j)._cate01--;
+								
+								
 							}
 						}
 
-						_ppp._alCate01.remove(forposition);
+						_ppp._alCate01.set(_ppp._alCate01Position.get(forposition),"");
+						_ppp._alCate01Edited.clear();
+						_ppp._alCate01Position.clear();
+						
+						for(int k=0; k<_ppp._alCate01.size();k++){
+							if(_ppp._alCate01.get(k).toString() != "" ){
+								_ppp._alCate01Edited.add(_ppp._alCate01.get(k));
+								_ppp._alCate01Position.add(k);
+							}							
+						}
+						_spinner01.setAdapter(_adapter01);
+						_edittext01.setText("");
+						
 					}
 				}
 			}
@@ -227,7 +242,18 @@ public class category extends Activity {
 							}
 						}
 
-						_ppp._alCate02.remove(forposition2);
+						_ppp._alCate02.set(_ppp._alCate02Position.get(forposition2),"");
+						_ppp._alCate02Edited.clear();
+						_ppp._alCate02Position.clear();
+						
+						for(int k=0; k<_ppp._alCate02.size();k++){
+							if(_ppp._alCate02.get(k).toString() != "" ){
+								_ppp._alCate02Edited.add(_ppp._alCate02.get(k));
+								_ppp._alCate02Position.add(k);
+							}							
+						}
+						_spinner02.setAdapter(_adapter02);
+						_edittext02.setText("");
 					}
 				}
 			}
