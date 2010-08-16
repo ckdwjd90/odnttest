@@ -117,20 +117,22 @@ public class category extends Activity {
 
 		_button02.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				int checker = 0;
 				for (int q = 0; q < _ppp._alCate01.size(); q++) {
-					if (_ppp._alCate01.get(q) == _edittext01.getText().toString()) {
+					if (_ppp._alCate01.get(q).equals(_edittext01.getText().toString())) {
 						Toast.makeText(category.this, "중복된 카테고리네요, 다시해봐요",
 								Toast.LENGTH_SHORT).show();
-//						checker++;
+ 					 
 					}
 				}
-//				if (checker == 0) {
-//					_ppp._alCate01.add(_edittext01.getText().toString());
-//					_spinner01.setAdapter(_adapter01);
-//					_edittext01.setText("");
-//					_spinner01.setAdapter(_adapter01);
-//				}
+				
+			  
+					
+					_ppp._alCate01.add(_edittext01.getText().toString());
+					_spinner01.setAdapter(_adapter01);
+					_edittext01.setText("");
+					_spinner01.setAdapter(_adapter01);
+					
+					 
 			}
 		});
 
@@ -153,6 +155,13 @@ public class category extends Activity {
 
 		_button04.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
+				for (int q = 0; q < _ppp._alCate02.size(); q++) {
+					if (_ppp._alCate02.get(q).equals(_edittext02.getText().toString())) {
+						Toast.makeText(category.this, "중복된 카테고리네요, 다시해봐요",
+								Toast.LENGTH_SHORT).show();
+ 					 
+					}
+				}
 
 				_ppp._alCate02.add(_edittext02.getText().toString());
 				_spinner02.setAdapter(_adapter02);
