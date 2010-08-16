@@ -2,6 +2,7 @@ package dandaeroid.ODNT_test;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.hardware.Camera.Size;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -58,16 +59,18 @@ public class category extends Activity {
 
 		_textview01.setText("- Change category -");
 		intent = getIntent();
-
+		
+		
+		
 		_adapter01 = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_item, _ppp._alCate01);
+				android.R.layout.simple_spinner_item, _ppp._alCate01Edited);
 		_adapter01
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		_spinner01.setAdapter(_adapter01);
 		_spinner01.setPrompt("Category1");
 
 		_adapter02 = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_item, _ppp._alCate02);
+				android.R.layout.simple_spinner_item, _ppp._alCate02Edited);
 		_adapter02
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		_spinner02.setAdapter(_adapter02);
@@ -116,20 +119,20 @@ public class category extends Activity {
 
 		_button02.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				for (int q = 0; q < _ppp._alCate01.size(); q++) {
-					if (_ppp._alCate01.get(q).equals(_edittext01.getText().toString())) {
+				for (int q = 0; q < _ppp._alCate01Edited.size(); q++) {
+					if (_ppp._alCate01Edited.get(q).equals(_edittext01.getText().toString())) {
 						Toast.makeText(category.this, "중복된 카테고리네요, 다시해봐요",
 								Toast.LENGTH_SHORT).show();
- 					 
-					}
+ 					}
 				}
-				
-			  
-					
+				 	
 					_ppp._alCate01.add(_edittext01.getText().toString());
+					_ppp._alCate01Edited.add(_edittext01.getText().toString());
+					_ppp._alCate01Position.add(_ppp._alCate01.size()-1);
+					
 					_spinner01.setAdapter(_adapter01);
 					_edittext01.setText("");
-					_spinner01.setAdapter(_adapter01);
+				 
 					
 					 
 			}
@@ -154,8 +157,8 @@ public class category extends Activity {
 
 		_button04.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				for (int q = 0; q < _ppp._alCate02.size(); q++) {
-					if (_ppp._alCate02.get(q).equals(_edittext02.getText().toString())) {
+				for (int q = 0; q < _ppp._alCate02Edited.size(); q++) {
+					if (_ppp._alCate02Edited.get(q).equals(_edittext02.getText().toString())) {
 						Toast.makeText(category.this, "중복된 카테고리네요, 다시해봐요",
 								Toast.LENGTH_SHORT).show();
  					 
@@ -163,6 +166,9 @@ public class category extends Activity {
 				}
 
 				_ppp._alCate02.add(_edittext02.getText().toString());
+				_ppp._alCate02Edited.add(_edittext02.getText().toString());
+				_ppp._alCate02Position.add(_ppp._alCate02.size()-1);
+				
 				_spinner02.setAdapter(_adapter02);
 				_edittext02.setText("");
 			}
