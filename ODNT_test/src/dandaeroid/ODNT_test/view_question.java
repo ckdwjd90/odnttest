@@ -46,14 +46,14 @@ public class view_question extends ListActivity {
 
 		n_list01.add("전체");
 
-		for (int j = 0; j < global._alCate01.size(); j++) {
-			n_list01.add(global._alCate01.get(j));
+		for (int j = 0; j < global._alCate01Edited.size(); j++) {
+			n_list01.add(global._alCate01Edited.get(j));
 		}
 
 		n_list02.add("전체");
 
-		for (int k = 0; k < global._alCate02.size(); k++) {
-			n_list02.add(global._alCate02.get(k));
+		for (int k = 0; k < global._alCate02Edited.size(); k++) {
+			n_list02.add(global._alCate02Edited.get(k));
 		}
 
 		ArrayAdapter<String> aa = new ArrayAdapter<String>(this,
@@ -154,18 +154,18 @@ public class view_question extends ListActivity {
 				list.add(global._alQuestion.get(i));
 				posi.add(i);
 			} else if (pos1 == 0 && pos2 != 0) {
-				if (global._alQuestion.get(i)._cate02 == pos2 - 1) {
+				if (global._alQuestion.get(i)._cate02 == global._alCate02Position.get(pos2-1)) {
 					list.add(global._alQuestion.get(i));
 					posi.add(i);
 				}
 			} else if (pos1 != 0 && pos2 == 0) {
-				if (global._alQuestion.get(i)._cate01 == pos1 - 1) {
+				if (global._alQuestion.get(i)._cate01 == global._alCate01Position.get(pos1-1)) {
 					list.add(global._alQuestion.get(i));
 					posi.add(i);
 				}
 			} else {
-				if (global._alQuestion.get(i)._cate01 == pos1 - 1
-						&& global._alQuestion.get(i)._cate02 == pos2 - 1) {
+				if (global._alQuestion.get(i)._cate01 == global._alCate01Position.get(pos1-1)
+						&& global._alQuestion.get(i)._cate02 == global._alCate02Position.get(pos2-1) ) {
 					list.add(global._alQuestion.get(i));
 					posi.add(i);
 				}
