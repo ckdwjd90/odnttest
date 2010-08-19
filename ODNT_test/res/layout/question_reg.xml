@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<LinearLayout android:id="@+id/LinearLayout01" android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="fill_parent" android:orientation="vertical"><EditText android:id="@+id/EditText01" android:layout_height="wrap_content" android:hint="키워드를 입력해주세요." android:layout_width="fill_parent"></EditText>
+<LinearLayout android:id="@+id/LinearLayout01" android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="fill_parent" android:orientation="vertical"><AutoCompleteTextView android:id="@+id/AutoCompleteTextView01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:hint="키워드를 입력해주세요"></AutoCompleteTextView>
 <TextView android:id="@+id/TextView01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="카테고리를 지정해주세요."></TextView><LinearLayout android:id="@+id/LinearLayout02" android:layout_height="wrap_content" android:layout_width="fill_parent"><Spinner android:id="@+id/Spinner01" android:layout_height="wrap_content" android:layout_width="120dp"></Spinner>
 <Spinner android:id="@+id/Spinner02" android:layout_height="wrap_content" android:layout_width="120dp"></Spinner>
 
@@ -20,4 +20,5 @@
 <LinearLayout android:id="@+id/LinearLayout04" android:layout_width="wrap_content" android:layout_height="wrap_content"><Button android:id="@+id/Button02" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="등록"></Button>
 <Button android:id="@+id/Button03" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="취소"></Button>
 </LinearLayout>
+
 </LinearLayout>
