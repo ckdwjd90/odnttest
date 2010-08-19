@@ -6,13 +6,16 @@ import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnKeyListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -29,9 +32,11 @@ public class view_question extends ListActivity {
 	Spinner sp02;
 	int pos1;
 	int pos2;
+	EditText edittext01;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.view_question_1);
 
@@ -43,6 +48,7 @@ public class view_question extends ListActivity {
 		n_list01 = new ArrayList<String>();
 		n_list02 = new ArrayList<String>();
 		posi = new ArrayList<Integer>();
+		edittext01 = (EditText) findViewById(R.id.EditText01);
 
 		n_list01.add("ÀüÃ¼");
 
@@ -108,9 +114,21 @@ public class view_question extends ListActivity {
 				startActivity(intent);
 			}
 		});
+
+		edittext01.setOnKeyListener(new OnKeyListener() {
+			public boolean onKey(View v, int keyCode, KeyEvent event) {
+				if ((event.getAction() == KeyEvent.ACTION_DOWN)
+						&& (keyCode == KeyEvent.KEYCODE_ENTER)) {
+					refreshList();
+					return true;
+				}
+				return false;
+			}
+		});
 	}
 
 	private class QuestionAdapter extends ArrayAdapter<Question> {
+
 		private ArrayList<Question> items;
 
 		public QuestionAdapter(Context context, int textViewResourceId,
@@ -147,28 +165,48 @@ public class view_question extends ListActivity {
 	}
 
 	void refreshList() {
+
 		list.clear();
 		posi.clear();
 		for (int i = 0; i < global._alQuestion.size(); i++) {
-			if (pos1 == 0 && pos2 == 0) {
+			if (pos1 == 0
+					&& pos2 == 0
+					&& global._alQuestion.get(i)._keyword.matches(".*"
+							+ edittext01.getText().toString() + ".*")) {
 				list.add(global._alQuestion.get(i));
 				posi.add(i);
-			} else if (pos1 == 0 && pos2 != 0) {
-				if (global._alQuestion.get(i)._cate02 == global._alCate02Position.get(pos2-1)) {
+			} else if (pos1 == 0
+					&& pos2 != 0
+					&& global._alQuestion.get(i)._keyword.matches(".*"
+							+ edittext01.getText().toString() + ".*")) {
+				if (global._alQuestion.get(i)._cate02 == global._alCate02Position
+						.get(pos2 - 1)) {
 					list.add(global._alQuestion.get(i));
 					posi.add(i);
 				}
-			} else if (pos1 != 0 && pos2 == 0) {
-				if (global._alQuestion.get(i)._cate01 == global._alCate01Position.get(pos1-1)) {
+			} else if (pos1 != 0
+					&& pos2 == 0
+					&& global._alQuestion.get(i)._keyword.matches(".*"
+							+ edittext01.getText().toString() + ".*")) {
+				if (global._alQuestion.get(i)._cate01 == global._alCate01Position
+						.get(pos1 - 1)) {
 					list.add(global._alQuestion.get(i));
 					posi.add(i);
 				}
 			} else {
-				if (global._alQuestion.get(i)._cate01 == global._alCate01Position.get(pos1-1)
-						&& global._alQuestion.get(i)._cate02 == global._alCate02Position.get(pos2-1) ) {
+				if (global._alQuestion.get(i)._cate01 == global._alCate01Position
+						.get(pos1 - 1)
+						&& global._alQuestion.get(i)._cate02 == global._alCate02Position
+								.get(pos2 - 1)) {
 					list.add(global._alQuestion.get(i));
 					posi.add(i);
 				}
+				// }
+				// if (global._alQuestion.get(i)._keyword.matches(".*"
+				// + edittext01.getText().toString() + ".*")) {
+				// list.add(global._alQuestion.get(i));
+				// }
+
 			}
 			m_adapter.notifyDataSetChanged();
 		}
