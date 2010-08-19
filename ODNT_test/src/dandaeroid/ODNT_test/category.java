@@ -1,6 +1,8 @@
 package dandaeroid.ODNT_test;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -36,6 +38,137 @@ public class category extends Activity {
 	int forposition;
 	int forposition2;
 
+	private void DialogSimple(){  
+
+	     AlertDialog.Builder alt_bld = new AlertDialog.Builder(this);  
+
+	     alt_bld.setMessage("정말로 지우시겠어요 ?").setCancelable(  
+
+	         false).setPositiveButton("Yes",  
+
+	         new DialogInterface.OnClickListener() {  
+
+	         public void onClick(DialogInterface dialog, int id) {  
+
+	             // Action for 'Yes' Button  
+	        	 if (forposition > 0) {
+						if (!_ppp._alCate01.isEmpty()) {
+
+							for (int i = 0; i < _ppp._alQuestion.size(); i++) {
+								if (_ppp._alQuestion.get(i)._cate01 == forposition) {
+									_ppp._alQuestion.get(i)._cate01 = 0;
+									
+								}
+							}
+
+							_ppp._alCate01.set(_ppp._alCate01Position.get(forposition),"");
+							_ppp._alCate01Edited.clear();
+							_ppp._alCate01Position.clear();
+							
+							for(int k=0; k<_ppp._alCate01.size();k++){
+								if(_ppp._alCate01.get(k).toString() != "" ){
+									_ppp._alCate01Edited.add(_ppp._alCate01.get(k));
+									_ppp._alCate01Position.add(k);
+								}							
+							}
+							_spinner01.setAdapter(_adapter01);
+							
+							Toast.makeText(category.this, "삭제 되었습니다",
+									Toast.LENGTH_SHORT).show();
+							
+							_edittext01.setText("");
+							
+						}
+					}
+
+	         }  
+
+	         }).setNegativeButton("No",  
+
+	         new DialogInterface.OnClickListener() {  
+
+	         public void onClick(DialogInterface dialog, int id) {  
+
+	             // Action for 'NO' Button  
+
+	             dialog.cancel();  
+	         }  
+	         });  
+	     AlertDialog alert = alt_bld.create();  
+	     // Title for AlertDialog  
+	     alert.setTitle(_edittext01.getText().toString()+"을");  
+	     // Icon for AlertDialog  
+	     alert.setIcon(R.drawable.icon);  
+	     alert.show();  
+
+	 }  
+	
+	
+	private void DialogSimple2(){  
+
+	     AlertDialog.Builder alt_bld2 = new AlertDialog.Builder(this);  
+
+	     alt_bld2.setMessage("정말로 지우시겠어요 ?").setCancelable(  
+
+	         false).setPositiveButton("Yes",  
+
+	         new DialogInterface.OnClickListener() {  
+
+	         public void onClick(DialogInterface dialog, int id) {  
+
+	             // Action for 'Yes' Button  
+	        	 if (forposition2 > 0) {
+						if (!_ppp._alCate02.isEmpty()) {
+
+							for (int i = 0; i < _ppp._alQuestion.size(); i++) {
+								if (_ppp._alQuestion.get(i)._cate02 == forposition2) {
+									_ppp._alQuestion.get(i)._cate02 = 0;
+								}
+							}
+
+							_ppp._alCate02.set(_ppp._alCate02Position.get(forposition2),"");
+							_ppp._alCate02Edited.clear();
+							_ppp._alCate02Position.clear();
+							
+							for(int l=0; l<_ppp._alCate02.size();l++){
+								if(_ppp._alCate02.get(l).toString() != "" ){
+									_ppp._alCate02Edited.add(_ppp._alCate02.get(l));
+									_ppp._alCate02Position.add(l);
+								}							
+							}
+							_spinner02.setAdapter(_adapter02);
+							
+							Toast.makeText(category.this, "삭제 되었습니다",
+									Toast.LENGTH_SHORT).show();
+							
+							_edittext02.setText("");
+						}
+					}
+	        	 
+	        	 
+	        	 
+	         }  
+
+	         }).setNegativeButton("No",  
+
+	         new DialogInterface.OnClickListener() {  
+
+	         public void onClick(DialogInterface dialog, int id) {  
+
+	             // Action for 'NO' Button  
+
+	             dialog.cancel();  
+	         }  
+	         });  
+	     AlertDialog alert = alt_bld2.create();  
+	     // Title for AlertDialog  
+	     alert.setTitle(_edittext02.getText().toString()+"을");  
+	     // Icon for AlertDialog  
+	     alert.setIcon(R.drawable.icon);  
+	     alert.show();  
+
+	 }  
+	
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -97,7 +230,7 @@ public class category extends Activity {
 
 				forposition2 = position;
 				if(forposition2 !=0){
-				  _edittext02.setText(_ppp._alCate02.get(forposition));
+				  _edittext02.setText(_ppp._alCate02.get(forposition2));
 				}
 			}
 
@@ -222,36 +355,9 @@ public class category extends Activity {
 					Toast.makeText(category.this, "잘못 선택했어요, 다시해봐요",
 							Toast.LENGTH_SHORT).show();
 				}
-				
-				if (forposition > 0) {
-					if (!_ppp._alCate01.isEmpty()) {
-
-						for (int i = 0; i < _ppp._alQuestion.size(); i++) {
-							if (_ppp._alQuestion.get(i)._cate01 == forposition) {
-								_ppp._alQuestion.get(i)._cate01 = 0;
+		 
+				 DialogSimple();
 								
-							}
-						}
-
-						_ppp._alCate01.set(_ppp._alCate01Position.get(forposition),"");
-						_ppp._alCate01Edited.clear();
-						_ppp._alCate01Position.clear();
-						
-						for(int k=0; k<_ppp._alCate01.size();k++){
-							if(_ppp._alCate01.get(k).toString() != "" ){
-								_ppp._alCate01Edited.add(_ppp._alCate01.get(k));
-								_ppp._alCate01Position.add(k);
-							}							
-						}
-						_spinner01.setAdapter(_adapter01);
-						
-						Toast.makeText(category.this, "삭제 되었습니다",
-								Toast.LENGTH_SHORT).show();
-						
-						_edittext01.setText("");
-						
-					}
-				}
 			}
 		});
 		
@@ -261,33 +367,7 @@ public class category extends Activity {
 					Toast.makeText(category.this, "잘못 선택했어요, 다시해봐요",
 							Toast.LENGTH_SHORT).show();
 				}
-				if (forposition2 > 0) {
-					if (!_ppp._alCate02.isEmpty()) {
-
-						for (int i = 0; i < _ppp._alQuestion.size(); i++) {
-							if (_ppp._alQuestion.get(i)._cate02 == forposition2) {
-								_ppp._alQuestion.get(i)._cate02 = 0;
-							}
-						}
-
-						_ppp._alCate02.set(_ppp._alCate02Position.get(forposition2),"");
-						_ppp._alCate02Edited.clear();
-						_ppp._alCate02Position.clear();
-						
-						for(int l=0; l<_ppp._alCate02.size();l++){
-							if(_ppp._alCate02.get(l).toString() != "" ){
-								_ppp._alCate02Edited.add(_ppp._alCate02.get(l));
-								_ppp._alCate02Position.add(l);
-							}							
-						}
-						_spinner02.setAdapter(_adapter02);
-						
-						Toast.makeText(category.this, "삭제 되었습니다",
-								Toast.LENGTH_SHORT).show();
-						
-						_edittext02.setText("");
-					}
-				}
+				DialogSimple2();
 			}
 		});
 		// TODO Auto-generated method stub
