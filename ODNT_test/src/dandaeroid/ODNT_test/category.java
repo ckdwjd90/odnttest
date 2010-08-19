@@ -75,23 +75,30 @@ public class category extends Activity {
 		_spinner02.setAdapter(_adapter02);
 		_spinner02.setPrompt("Category2");
 
+		
+		
 		_spinner01.setOnItemSelectedListener(new OnItemSelectedListener() {
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
 
 				forposition = position;
-				// _edittext01.setText(_ppp._alCate01.get(forposition));
+				if(forposition !=0){
+				_edittext01.setText(_ppp._alCate01.get(forposition));
+				}
 			}
 
 			public void onNothingSelected(AdapterView<?> args0) {
 			}
 		});
+		
 		_spinner02.setOnItemSelectedListener(new OnItemSelectedListener() {
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
 
 				forposition2 = position;
-				// _edittext02.setText(_ppp._alCate02.get(forposition));
+				if(forposition2 !=0){
+				  _edittext02.setText(_ppp._alCate02.get(forposition));
+				}
 			}
 
 			public void onNothingSelected(AdapterView<?> args0) {
@@ -110,6 +117,11 @@ public class category extends Activity {
 					_ppp._alCate01.set(_ppp._alCate01Position.get(forposition), _edittext01.getText().toString());
 					_ppp._alCate01Edited.set(forposition, _edittext01.getText().toString());
 					_spinner01.setAdapter(_adapter01);
+					
+					Toast.makeText(category.this, "수정 되었습니다",
+							Toast.LENGTH_SHORT).show();
+					
+					_edittext01.setText("");
 				}
 			}
 
@@ -137,7 +149,12 @@ public class category extends Activity {
 					_ppp._alCate01Position.add(_ppp._alCate01.size()-1);
 					
 					_spinner01.setAdapter(_adapter01);
+					
+					Toast.makeText(category.this, "추가 되었습니다",
+							Toast.LENGTH_SHORT).show();
+					 
 					_edittext01.setText("");
+					
 					}}
 					 
 			}
@@ -155,6 +172,11 @@ public class category extends Activity {
 					_ppp._alCate02.set(_ppp._alCate02Position.get(forposition2), _edittext02.getText().toString());
 					_ppp._alCate02Edited.set(forposition2, _edittext02.getText().toString());
 					_spinner02.setAdapter(_adapter02);
+					
+					Toast.makeText(category.this, "수정 되었습니다",
+							Toast.LENGTH_SHORT).show();
+										
+					_edittext02.setText("");
 				}
 			}
 		});
@@ -173,6 +195,8 @@ public class category extends Activity {
 				_ppp._alCate02Edited.add(_edittext02.getText().toString());
 				_ppp._alCate02Position.add(_ppp._alCate02.size()-1);
 				 
+				Toast.makeText(category.this, "추가 되었습니다",
+						Toast.LENGTH_SHORT).show();
 				 
 				_spinner02.setAdapter(_adapter02);
 				_edittext02.setText("");
@@ -220,12 +244,17 @@ public class category extends Activity {
 							}							
 						}
 						_spinner01.setAdapter(_adapter01);
+						
+						Toast.makeText(category.this, "삭제 되었습니다",
+								Toast.LENGTH_SHORT).show();
+						
 						_edittext01.setText("");
 						
 					}
 				}
 			}
 		});
+		
 		_button07.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				if (forposition2 == 0) {
@@ -252,6 +281,10 @@ public class category extends Activity {
 							}							
 						}
 						_spinner02.setAdapter(_adapter02);
+						
+						Toast.makeText(category.this, "삭제 되었습니다",
+								Toast.LENGTH_SHORT).show();
+						
 						_edittext02.setText("");
 					}
 				}
