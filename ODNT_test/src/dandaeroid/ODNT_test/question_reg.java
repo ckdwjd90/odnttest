@@ -22,6 +22,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -30,11 +31,13 @@ import android.widget.AdapterView.OnItemSelectedListener;
 public class question_reg extends Activity {
 	ArrayList<Integer> _ALint1;
 	ArrayList<Integer> _ALint2;
+	ArrayList<String> _autostr;
 	ArrayAdapter<String> _aa1;
 	ArrayAdapter<String> _aa2;
 	ArrayAdapter<Integer> _aa3;
 	ArrayAdapter<Integer> _aa4;
-	EditText _et1;
+	ArrayAdapter<String> _autoAdapter;
+	AutoCompleteTextView _autotv1;
 	EditText _et2;
 	Button _bt1;
 	Button _bt2;
@@ -53,7 +56,7 @@ public class question_reg extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.question_reg);
         
-        _et1 = (EditText) findViewById(R.id.EditText01);
+        _autotv1 = (AutoCompleteTextView) findViewById(R.id.AutoCompleteTextView01);
         _et2 = (EditText) findViewById(R.id.EditText02);
         _bt1 = (Button)findViewById(R.id.Button01);
         _bt2 = (Button)findViewById(R.id.Button02);
@@ -68,7 +71,6 @@ public class question_reg extends Activity {
         _ALint1 = new ArrayList<Integer>();
         _ALint2 = new ArrayList<Integer>();
         
-        
         _ALint1.add(0);
         _ALint1.add(1);
         _ALint1.add(2);
@@ -82,7 +84,10 @@ public class question_reg extends Activity {
         _ALint2.add(3);
         _ALint2.add(4);
         _ALint2.add(5);
-
+        
+        _autoAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, _gb._autoCTVstr);
+        _autotv1.setAdapter(_autoAdapter);
+        
 		_aa1 = new ArrayAdapter<String>(this,
 				android.R.layout.simple_spinner_item, _gb._alCate01Edited);		
 		_aa1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -117,11 +122,20 @@ public class question_reg extends Activity {
 		});
                 
         _bt2.setOnClickListener(new OnClickListener() {
+        	int check = 0;
 			@Override
 			public void onClick(View v) {
-				_gb._alQuestion.add(new Question(_et1.getText().toString(), _sp1temp, _sp2temp, _sp3temp,
+				for(int i=0;i < _gb._autoCTVstr.size();i++) {
+					if (_autotv1.getText().toString().equals(_gb._autoCTVstr.get(i).toString())){
+						check = 1;
+				}
+				}
+				if(check==0) {
+				_gb._autoCTVstr.add(_autotv1.getText().toString());
+				}
+				_gb._alQuestion.add(new Question(_autotv1.getText().toString(), _sp1temp, _sp2temp, _sp3temp,
 						_et2.getText().toString(), _sp4temp));
-				String keyword = _et1.getText().toString();
+				String keyword = _autotv1.getText().toString();
 				try {
 			        HttpClient client = new DefaultHttpClient();
 			        String postURL = "ºñ¹Ð/odnt_write.php";

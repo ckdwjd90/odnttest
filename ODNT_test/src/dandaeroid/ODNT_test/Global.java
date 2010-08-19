@@ -12,6 +12,7 @@ public class Global extends Application {
 	ArrayList<String> _alCate02;
 	ArrayList<String> _alCate02Edited;
 	ArrayList<Integer> _alCate02Position;
+	ArrayList<String> _autoCTVstr;
 
 	public void onCreate(){
 		_alQuestion = new ArrayList<Question>();
@@ -21,6 +22,7 @@ public class Global extends Application {
 		_alCate02 = new ArrayList<String>();
 		_alCate02Edited = new ArrayList<String>();
 		_alCate02Position = new ArrayList<Integer>();
+		_autoCTVstr = new ArrayList<String>();
 		
         _alCate01.add("미분류");
         _alCate01Edited.add("미분류");
