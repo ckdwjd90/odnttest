@@ -31,8 +31,8 @@ public class details_view extends Activity {
 		position = _intent.getIntExtra("position", 0);
 
 		q = _global._alQuestion.get(position);
-		st = " " + q._keyword + " " + q._cate01 + q._cate02 + " " + q._answer
-				+ " " + q._solution + " " + q._rate;
+		st = "keyword: " + q._keyword + "\n"+ " q._cate01: "  + q._cate01 + "\n" + "q._cate02: " + q._cate02 + "\n" + " q._answer: "  + q._answer
+				+ "\n" + " q._solution: " + q._solution + "\n" + " q._rate: " + q._rate + "\n";
 		_text.setText(st.toString());
 		// _text.setText(st.toString());
 
