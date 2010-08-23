@@ -83,7 +83,6 @@ public class view_question extends ListActivity {
 		setListAdapter(m_adapter);
 
 		sp01.setOnItemSelectedListener(new OnItemSelectedListener() {
-
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
 				pos1 = position;
@@ -96,7 +95,6 @@ public class view_question extends ListActivity {
 		});
 
 		sp02.setOnItemSelectedListener(new OnItemSelectedListener() {
-
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
 				pos2 = position;
@@ -104,7 +102,6 @@ public class view_question extends ListActivity {
 			}
 
 			public void onNothingSelected(AdapterView<?> args0) {
-
 			}
 		});
 
@@ -165,51 +162,52 @@ public class view_question extends ListActivity {
 	}
 
 	void refreshList() {
-
 		list.clear();
 		posi.clear();
-		for (int i = 0; i < global._alQuestion.size(); i++) {
-			if (pos1 == 0
-					&& pos2 == 0
-					&& global._alQuestion.get(i)._keyword.matches(".*"
-							+ edittext01.getText().toString() + ".*")) {
-				list.add(global._alQuestion.get(i));
-				posi.add(i);
-			} else if (pos1 == 0
-					&& pos2 != 0
-					&& global._alQuestion.get(i)._keyword.matches(".*"
-							+ edittext01.getText().toString() + ".*")) {
-				if (global._alQuestion.get(i)._cate02 == global._alCate02Position
-						.get(pos2 - 1)) {
+
+		if (pos1 == 0 && pos2 == 0) {
+			for (int i = 0; i < global._alQuestion.size(); i++) {
+				if (global._alQuestion.get(i)._keyword.matches(".*"
+						+ edittext01.getText().toString() + ".*")) {
 					list.add(global._alQuestion.get(i));
 					posi.add(i);
 				}
-			} else if (pos1 != 0
-					&& pos2 == 0
-					&& global._alQuestion.get(i)._keyword.matches(".*"
-							+ edittext01.getText().toString() + ".*")) {
-				if (global._alQuestion.get(i)._cate01 == global._alCate01Position
-						.get(pos1 - 1)) {
-					list.add(global._alQuestion.get(i));
-					posi.add(i);
-				}
-			} else {
+			}
+		} else if (pos1 != 0 && pos2 == 0) {
+			for (int i = 0; i < global._alQuestion.size(); i++) {
 				if (global._alQuestion.get(i)._cate01 == global._alCate01Position
 						.get(pos1 - 1)
-						&& global._alQuestion.get(i)._cate02 == global._alCate02Position
-								.get(pos2 - 1)) {
+						&& global._alQuestion.get(i)._keyword.matches(".*"
+								+ edittext01.getText().toString() + ".*")) {
 					list.add(global._alQuestion.get(i));
 					posi.add(i);
 				}
-				// }
-				// if (global._alQuestion.get(i)._keyword.matches(".*"
-				// + edittext01.getText().toString() + ".*")) {
-				// list.add(global._alQuestion.get(i));
-				// }
-
 			}
-			m_adapter.notifyDataSetChanged();
+		} else if (pos1 == 0 && pos2 != 0) {
+			for (int i = 0; i < global._alQuestion.size(); i++) {
+				if (global._alQuestion.get(i)._cate02 == global._alCate02Position
+						.get(pos2 - 1)
+						&& global._alQuestion.get(i)._keyword.matches(".*"
+								+ edittext01.getText().toString() + ".*")) {
+					list.add(global._alQuestion.get(i));
+					posi.add(i);
+				}
+			}
+		} else if (pos1 != 0 && pos2 != 0) {
+			for (int i = 0; i < global._alQuestion.size(); i++) {
+				if (global._alQuestion.get(i)._cate01 == global._alCate01Position
+						.get(pos1 - 1)
+						&& global._alQuestion.get(i)._cate02 == global._alCate01Position
+								.get(pos2 - 1)
+						&& global._alQuestion.get(i)._keyword.matches(".*"
+								+ edittext01.getText().toString() + ".*")) {
+					list.add(global._alQuestion.get(i));
+					posi.add(i);
+				}
+			}
 		}
+
+		m_adapter.notifyDataSetChanged();
 	}
 
 	protected void onListItemClick(ListView l, View v, int position, long id) {
