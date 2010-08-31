@@ -15,6 +15,7 @@ import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -135,6 +136,9 @@ public class question_reg extends Activity {
 				}
 				_gb._alQuestion.add(new Question(_autotv1.getText().toString(), _sp1temp, _sp2temp, _sp3temp,
 						_et2.getText().toString(), _sp4temp));
+//				ContentValues _cv1 = new ContentValues();
+//				_cv1.put("title", _autotv1.getText().toString());
+				
 				String keyword = _autotv1.getText().toString();
 				try {
 			        HttpClient client = new DefaultHttpClient();
