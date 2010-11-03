@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+
+	<LinearLayout android:id="@+id/LinearLayout01"
+		android:layout_height="wrap_content" android:orientation="horizontal"
+		android:layout_width="fill_parent" android:background="#ffffff">
+		<Spinner android:id="@+id/Spinner01" android:layout_height="wrap_content"
+			android:layout_weight="2" android:layout_width="0dp"></Spinner>
+		<Spinner android:id="@+id/Spinner02" android:layout_height="wrap_content"
+			android:layout_weight="2" android:layout_width="0dp"></Spinner>
+		<EditText android:id="@+id/EditText01" android:layout_height="wrap_content"
+			android:layout_weight="2" android:layout_width="0dp"></EditText>
+		<Button android:id="@+id/Button01" android:text="검색" android:textScaleX="0.75" android:background="@drawable/bt_gray" android:layout_width="125px" android:layout_weight="0" android:layout_height="52px"></Button>
+	</LinearLayout>
+
+	<ListView android:id="@+id/android:list" android:layout_width="fill_parent"
+		android:layout_height="fill_parent">
+	</ListView>
+
+	<RelativeLayout android:id="@+id/android:empty"
+		android:background="#ffffff" android:layout_height="fill_parent" android:layout_width="fill_parent">
+		<TextView android:id="@+id/TextView01"
+			android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#111111" android:text="해당하는 검색 결과가 없거나,\n문제가 아직 등록되지 않았습니다."></TextView>
+	</RelativeLayout>
+
+</LinearLayout>

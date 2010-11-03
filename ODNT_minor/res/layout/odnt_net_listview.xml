@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+
+	<LinearLayout android:id="@+id/LinearLayout01"
+		android:layout_height="wrap_content" android:orientation="horizontal"
+		android:layout_width="fill_parent" android:background="#ffffff">
+
+		<LinearLayout android:id="@+id/LinearLayout02"
+			android:layout_height="wrap_content" android:orientation="horizontal"
+			android:layout_width="fill_parent" android:gravity="center_vertical" android:layout_marginTop="5dp">
+
+
+			<Button android:id="@+id/Button01"
+				android:layout_height="wrap_content" android:layout_width="0dp"
+				android:layout_weight="2" android:text="이전 페이지"></Button>
+			<LinearLayout android:id="@+id/LinearLayout03"
+				android:layout_height="wrap_content" android:layout_width="0dp"
+				android:layout_weight="2">
+				<TextView android:text="@+id/TextView02" android:id="@+id/TextView02"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:gravity="center" android:textColor="#111111" android:textSize="20dp"></TextView>
+			</LinearLayout>
+			<Button android:id="@+id/Button02"
+				android:layout_height="wrap_content" android:layout_width="0dp"
+				android:layout_weight="2" android:text="다음 페이지"></Button>
+		</LinearLayout>
+	</LinearLayout>
+
+	<ListView android:id="@+id/android:list" android:layout_width="fill_parent"
+		android:layout_height="fill_parent">
+	</ListView>
+
+	<RelativeLayout android:id="@+id/android:empty"
+		android:background="#ffffff" android:layout_height="fill_parent"
+		android:layout_width="fill_parent">
+		<TextView android:id="@+id/TextView01" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:textColor="#111111"
+			android:text="해당하는 검색 결과가 없거나,\n문제가 아직 등록되지 않았습니다."></TextView>
+	</RelativeLayout>
+
+</LinearLayout>
