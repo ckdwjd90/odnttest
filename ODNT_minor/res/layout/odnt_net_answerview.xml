@@ -1,0 +1,31 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:background="#ffffff">
+
+	<LinearLayout android:id="@+id/LinearLayout01"
+		android:layout_width="fill_parent" android:layout_height="fill_parent"
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="vertical">
+		
+		<TextView android:text="" android:id="@+id/TextView01"
+			android:layout_height="wrap_content" android:layout_width="fill_parent" android:textSize="20dp" android:textColor="#111111"></TextView>
+		<ImageView android:id="@+id/ImageView01"
+			android:layout_height="wrap_content" android:layout_width="fill_parent"></ImageView>
+		<TextView android:text="" android:id="@+id/TextView02"
+			android:layout_height="wrap_content" android:layout_width="fill_parent" android:textSize="20dp" android:textColor="#111111"></TextView>
+		<TextView android:text="" android:id="@+id/TextView03"
+			android:layout_height="wrap_content" android:layout_width="fill_parent" android:textSize="18dp" android:textColor="#222222"></TextView>
+		<EditText android:id="@+id/EditText01" android:layout_height="wrap_content"
+			android:layout_width="fill_parent" android:hint="의견을 작성해주세요"></EditText>
+		<LinearLayout android:id="@+id/LinearLayout02"
+			android:layout_height="wrap_content" android:orientation="horizontal"
+			android:layout_width="fill_parent">
+			<Button android:id="@+id/Button01" android:layout_height="wrap_content"
+				android:layout_width="0dp" android:layout_weight="1" android:text="이 문제를 내려받기"></Button>
+			<Button android:id="@+id/Button02" android:layout_height="wrap_content"
+				android:layout_weight="1" android:layout_width="0dp" android:text="의견 보내기"></Button>
+		</LinearLayout>
+		
+	</LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout android:id="@+id/LinearLayout01"
+	android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:background="@drawable/mainbg" android:layout_width="480px" android:gravity="top">
+
+	<LinearLayout android:id="@+id/LinearLayout02"
+		android:layout_width="fill_parent" android:layout_height="44px">
+	</LinearLayout>
+	<LinearLayout android:id="@+id/LinearLayout03"
+		android:layout_width="fill_parent" android:layout_height="107px"
+		android:gravity="right">
+		
+	<ImageButton android:id="@+id/ImageButton01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/main01"></ImageButton>
+</LinearLayout>
+	<LinearLayout android:id="@+id/LinearLayout04"
+		android:layout_width="fill_parent" android:layout_height="103px"
+		android:gravity="right">
+		
+	<ImageButton android:id="@+id/ImageButton02" android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/main02"></ImageButton>
+</LinearLayout>
+	<LinearLayout android:id="@+id/LinearLayout05"
+		android:layout_width="fill_parent" android:layout_height="103px"
+		android:gravity="right">
+		
+	<ImageButton android:id="@+id/ImageButton03" android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/main03"></ImageButton>
+</LinearLayout>
+	<LinearLayout android:id="@+id/LinearLayout06"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"></LinearLayout>
+		
+</LinearLayout>

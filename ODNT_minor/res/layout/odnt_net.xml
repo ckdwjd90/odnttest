@@ -1,0 +1,12 @@
+<LinearLayout android:id="@+id/LinearLayout01"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:gravity="center"
+	android:background="@drawable/a4">
+
+	<Button android:id="@+id/Button01" android:background="@drawable/check"
+		android:layout_height="47px" android:layout_width="400px"></Button>
+	<Button android:id="@+id/Button02" android:background="@drawable/others_q"
+		android:layout_width="400px" android:layout_height="47px"></Button>
+
+</LinearLayout>

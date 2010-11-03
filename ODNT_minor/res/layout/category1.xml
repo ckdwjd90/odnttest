@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical" android:background="@drawable/a3">
+
+
+	<TextView android:id="@+id/TextView01" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="- Change category -"
+		android:layout_marginBottom="7dp"></TextView>
+
+	<LinearLayout android:id="@+id/LinearLayout01"
+		android:layout_height="wrap_content" android:orientation="horizontal"
+		android:layout_width="fill_parent">
+		<EditText android:id="@+id/EditText01" android:layout_height="wrap_content"
+			android:layout_width="0dp" android:layout_weight="1" android:hint="카테고리1 입력"></EditText>
+		<EditText android:id="@+id/EditText02" android:layout_height="wrap_content"
+			android:layout_width="0dp" android:layout_weight="1" android:hint="카테고리2 입력"></EditText>
+	</LinearLayout>
+	<LinearLayout android:id="@+id/LinearLayout02"
+		android:layout_height="wrap_content" android:layout_width="fill_parent">
+		<Button android:id="@+id/Button01" android:layout_height="wrap_content"
+			android:text="수정" android:layout_width="0dp" android:layout_weight="1"></Button>
+		<Button android:id="@+id/Button02" android:layout_height="wrap_content"
+			android:layout_width="0dp" android:layout_weight="1" android:text="추가"></Button>
+		<Button android:id="@+id/Button03" android:layout_height="wrap_content"
+			android:text="수정" android:layout_width="0dp" android:layout_weight="1"></Button>
+		<Button android:id="@+id/Button04" android:layout_height="wrap_content"
+			android:layout_width="0dp" android:layout_weight="1" android:text="추가"></Button>
+	</LinearLayout>
+	<LinearLayout android:id="@+id/LinearLayout03"
+		android:layout_height="wrap_content" android:layout_width="fill_parent">
+		<Spinner android:id="@+id/Spinner01" android:layout_height="wrap_content"
+			android:layout_width="0dp" android:layout_weight="1"></Spinner>
+		<Spinner android:id="@+id/Spinner02" android:layout_height="wrap_content"
+			android:layout_width="0dp" android:layout_weight="1"></Spinner>
+	</LinearLayout>
+
+	<LinearLayout android:id="@+id/LinearLayout05"
+		android:layout_height="wrap_content" android:layout_width="fill_parent">
+		<Button android:id="@+id/Button06" android:layout_height="wrap_content"
+			android:text="카테고리1 삭제" android:layout_width="0dp"
+			android:layout_weight="1"></Button>
+		<Button android:id="@+id/Button07" android:layout_height="wrap_content"
+			android:layout_width="0dp" android:layout_weight="1" android:text="카테고리2 삭제"></Button>
+	</LinearLayout>
+
+	<LinearLayout android:id="@+id/LinearLayout04"
+		android:layout_height="wrap_content" android:layout_width="fill_parent"
+		android:gravity="center">
+		<Button android:id="@+id/Button05" android:layout_height="wrap_content"
+			android:background="@drawable/ok" android:layout_width="wrap_content"></Button>
+	</LinearLayout>
+
+</LinearLayout>

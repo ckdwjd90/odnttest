@@ -1,0 +1,24 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:background="@drawable/a5">
+
+	<LinearLayout android:id="@+id/LinearLayout01"
+		android:layout_width="fill_parent" android:layout_height="fill_parent"
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="vertical" android:gravity="center">
+
+		<ImageView android:id="@+id/ImageView01"
+			android:layout_height="wrap_content" android:layout_width="fill_parent"
+			android:layout_marginBottom="10dp"></ImageView>
+		<EditText android:id="@+id/EditText01" android:layout_height="wrap_content"
+			android:layout_width="fill_parent" android:layout_marginBottom="8dp"
+			android:hint="제목을 입력해 주세요." android:maxLength="20"></EditText>
+		<EditText android:id="@+id/EditText02" android:layout_width="fill_parent"
+			android:layout_height="200dp" android:layout_marginBottom="15dp"
+			android:hint="내용을 입력해 주세요." android:maxLength="1000"></EditText>
+		<Button android:id="@+id/Button01" android:background="@drawable/submit"
+			android:layout_height="47px" android:layout_width="400px"></Button>
+
+	</LinearLayout>
+
+</ScrollView>
